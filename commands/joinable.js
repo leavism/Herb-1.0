@@ -13,12 +13,20 @@ exports.run = async (client, message, [action, ...value], level) => {
       if (!role) return message.reply('Please specify the name of a role. You don\'t need to mention the role.');
       if (!message.guild.roles.find('name', role)) return message.reply('I could not find that role. You do not need to mention the role.');
       if (joinConfig['joinable'].includes(role)) return message.reply('That role can already be used with \`\`join\`\` and \`\`leave\`\`');
+
+      let giveRole = message.guild.roles.find('name',role);
+      let managerial = ["ADMINISTRATOR", "KICK_MEMBERS", "BAN_MEMBERS", "MANAGE_CHANNELS", "MANAGE_GUILD", "MANAGE_ROLES", "MANAGE_WEBHOOKS"];
+      for (var i = 0; i < managerial.length; i++){
+        if (giveRole.hasPermission([managerial[i]])) return message.reply(`That role has some managerial permission ${managerial[i]}, which is dangerous to be joinable. Either give the role manually or ask Leavism to change it.`);
+      }
+
       joinConfig['joinable'].push(role);
       fs.writeFile('./data/joinable/joinable.json', JSON.stringify(joinConfig), (err) => console.log(err));
       message.channel.send(`${role} role can now be used with \`\`join\`\` and \`\`leave\`\` commands.`);
       break;
     case 'remove':
       let index = joinConfig['joinable'].indexOf(role);
+
       if (index > -1){
         joinConfig['joinable'].splice(index, 1);
         fs.writeFile('./data/joinable/joinable.json', JSON.stringify(joinConfig), (err) => console.log(err));
