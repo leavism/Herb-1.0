@@ -9,6 +9,7 @@ exports.run = async (client, message, args) => {
   }
 
   if (joinConfig['joinable'].includes(role)){
+    let giveRole = message.guild.roles.find('name',role);
     let msg = `I've taken the ${role} from you.`
     await message.member.removeRole(giveRole).catch(err => { msg = `I could not edit your roles because ${err}`});
     message.channel.send(msg);
