@@ -9,7 +9,7 @@ const config = {
   "support": [],
 
   // Your Bot's Token. Available on https://discordapp.com/developers/applications/me
-  "token": "Mzk5ODAxOTAxNDI5OTQ4NDE2.DTSYDg.fgYR-QDFPbccm1Wsv0QGVeEtz4U",
+  "token": "Mzc2MTk4MDc1NjQwOTcxMjY2.DUZQlA.2b4GVcrogkaQvmcMbR56030unDA",
   // "sophie" : "Mzc2MTk4MDc1NjQwOTcxMjY2.DUZQlA.2b4GVcrogkaQvmcMbR56030unDA",
   // "dev" : "Mzk5ODAxOTAxNDI5OTQ4NDE2.DTSYDg.fgYR-QDFPbccm1Wsv0QGVeEtz4U"
 
