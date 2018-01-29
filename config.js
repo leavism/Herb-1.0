@@ -63,7 +63,7 @@ const config = {
       name: "Regular",
       check: (message) => {
         try{
-          const regRole = message.guild.roles.find(r => r.name.toLowerCose() === message.settings.regRole.toLowerCase());
+          const regRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.regRole.toLowerCase());
           if(regRole && message.member.roles.has(regRole.id)) return true;
         } catch (e){
           return false;
