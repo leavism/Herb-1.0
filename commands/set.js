@@ -35,6 +35,7 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
     message.reply(`The value of ${key} is currently ${settings[key]}`);
   } else {
     message.channel.send(inspect(settings), {code: "json"});
+    message.channel.send(`Use \`\`${settings.prefix}set edit\`\`to edit one of the settings.\nFor example, \`\`${settings.prefix}set edit welcomeChannel hev_you_seen_boss_chat\`\` changes the location in which welcome messages are sent to hev_you_seen_boss_chat.`)
   }
 };
 
