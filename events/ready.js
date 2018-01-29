@@ -5,7 +5,18 @@ module.exports = async client => {
   await client.wait(1000);
 
   // Both `wait` and `client.log` are in `./modules/functions`.
-  client.logger.log(`[READY] ${client.user.tag}, ready to serve ${client.users.size} users in ${client.guilds.size} servers.`, "ready");
+  client.logger.log(`[READY]\n
+  --------------------\n
+  Sophie - Discord Bot\n
+  --------------------\n
+  ${client.user.tag}\n
+  \nConnected to:\n
+  ${client.guilds.size} servers\n
+  ${client.users.size} users\n`, "ready");
+  client.generateInvite([])
+    .then(link => {
+      client.logger.log(`\nInvite link with no permissions: ${link}`)
+    })
 
   // We check for any guilds added while the bot was offline, if any were, they get a default configuration.
   client.guilds.filter(g => !client.settings.has(g.id)).forEach(g => client.settings.set(g.id, client.config.defaultSettings));
