@@ -66,7 +66,7 @@ module.exports = (client) => {
     text = text
       .replace(/`/g, "`" + String.fromCharCode(8203))
       .replace(/@/g, "@" + String.fromCharCode(8203))
-      .replace(client.token, "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
+      .replace(client.token, "mfa.VkO_2G4Qv3T--NOT-lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
 
     return text;
   };
@@ -117,6 +117,7 @@ module.exports = (client) => {
     return this.replace(/([^\W_]+[^\s-]*) */g, function(txt) {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   };
 
+  //<Month Date>.getMonthText() returns the month name instead of just the month number
   Date.prototype.getMonthText = function() {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return months[this.getMonth()];
