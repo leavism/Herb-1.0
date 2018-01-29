@@ -19,7 +19,7 @@ exports.run = async (client, message, [action, ...value], level) => {
       for (var i = 0; i < managerial.length; i++){
         if (giveRole.hasPermission([managerial[i]])) return message.reply(`That role has some managerial permission ${managerial[i]}, which is dangerous to be joinable. Either give the role manually or ask Leavism to change it.`);
       }
-
+    
       joinConfig['joinable'].push(role);
       fs.writeFile('./data/joinable/joinable.json', JSON.stringify(joinConfig), (err) => console.log(err));
       message.channel.send(`${role} role can now be used with \`\`join\`\` and \`\`leave\`\` commands.`);
