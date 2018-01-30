@@ -45,13 +45,41 @@ module.exports = (client, message) => {
   // in app.js.
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   const ccmd = require("../data/customcommands/ccommands.json");
+  const sb = require("../data/shipbuilds/sbuilds.json");
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
   // console.log(ccmd[`${command}`])
-  if (!cmd && !ccmd[`${command}`]) {
+  if (!cmd && !ccmd[`${command}`] && !sb[`${command}`]) {
     return
-  } else if (!cmd && ccmd[`${command}`]) {
+  } else if (!cmd && ccmd[`${command}`] && !sb[`${command}`]) {
     message.channel.send(`${ccmd[`${command}`]}`)
+    try {
+      return message.guild.channels.find('name', 'mod-log').send({embed : {
+        title: "Custom Command",
+        description: `${message.member} used a custom command at ${message.createdAt}.`,
+        fields: [
+          {
+            name: "Custom Command",
+            inline: true,
+            value: `${command}`
+          },
+          {
+            name: "Invoker",
+            inline: true,
+            value: `${message.author.tag}(${message.author.id})`
+          },
+          {
+            name: "Destination",
+            inline: true,
+            value: `${message.channel}`
+          }
+        ]
+      }})
+    } catch (e) {
+      return client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
+    }
+  } else if (!cmd && !ccmd[`${command}`] && sb[`${command}`]){
+    message.channel.send(`${sb[`${command}`]}`)
     try {
       return message.guild.channels.find('name', 'mod-log').send({embed : {
         title: "Custom Command",
