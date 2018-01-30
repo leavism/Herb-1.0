@@ -2,16 +2,11 @@ const fs = require('fs');
 const joinConfig = require('../data/joinable/joinable.json');
 
 exports.run = async (client, message, [action, ...value], level) => {
-  let role = "";
-  for(var i = 0; i < value.length; i++){
-    if (i == value.length-1) role += value[i]
-    else role += value[i] + " "
-  }
-  console.log(role)
+  let role = value.join(" ");
   switch (action) {
     case 'add':
       if (!role) return message.reply('Please specify the name of a role. You don\'t need to mention the role.');
-      if (!message.guild.roles.find('name', role)) return message.reply('I could not find that role. You do not need to mention the role.');
+      if (!message.guild.roles.find('name', role)) return message.reply('I could not find that role. Please ensure that you spelled the role correctly with propper casing. Do not mention the role.');
       if (joinConfig['joinable'].includes(role)) return message.reply('That role can already be used with \`\`join\`\` and \`\`leave\`\`');
 
       let giveRole = message.guild.roles.find('name',role);
@@ -34,6 +29,10 @@ exports.run = async (client, message, [action, ...value], level) => {
       } else {
         message.channel.send(`${role} wasn't able to be used with \`\`join\`\` or \`\`leave\`\` in the first place.`);
       }
+      break;
+    case "list":
+      let listIt = joinConfig["joinable"].join("\n");
+      message.channel.send(listIt);
       break;
     default:
       message.channel.send("You aren't using that command correctly. Try ``help joinable`` to find out more details on how to use it.");
