@@ -16,11 +16,8 @@ exports.run = async (aclient, message, [action, command, ...value], level) => {
         delete ccmd[command]
         fs.writeFileSync("./data/shipbuilds/sbuilds.json", JSON.stringify(ccmd), (err) => console.log(err));
         return message.channel.send(`The ${command} custom command has been deleted.`);
-    } else
-    if (action === "list") {
-        return message.channel.send(Object.getOwnPropertyNames(ccmd).sort(), {code : "JSON"})
     } else {
-        return message.channel.send(JSON.stringify(ccmd), {code: "json"});
+        return message.channel.send(Object.getOwnPropertyNames(ccmd).sort(), {code : "JSON"})
     }
 }
 
