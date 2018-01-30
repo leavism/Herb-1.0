@@ -15,7 +15,6 @@ exports.run = async(client, message, [member]) => {
 
     await member.addRoles([recruit, elite, simbian]).catch(err => { msg = `${member} already has those roles. That's right, no more eternal recruits!`})
     message.channel.send(msg);
-    message.guild.channels.find('name', 'mod-log').send(`${message.author.tag} (${message.author.id}) ran command \`\`recruit\`\` on ${member.user.tag} (${member.id})`)
 }
 
 exports.conf = {
