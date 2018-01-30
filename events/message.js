@@ -89,7 +89,7 @@ module.exports = (client, message) => {
   Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
       try {
-        return message.guild.channels.find('name', 'mod-log').send({embed : {
+        message.guild.channels.find('name', 'mod-log').send({embed : {
           title: "Command Attempt",
           description: `${message.member} attempted a command but failed due to lack of permissions at ${message.createdAt}.`,
           fields: [
@@ -118,8 +118,9 @@ module.exports = (client, message) => {
       } catch (e){
         client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) attempted command ${cmd.help.name}`);
       }
+      return;
     } else {
-      return
+      return;
     }
   } else {
       try {
