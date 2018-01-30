@@ -29,7 +29,7 @@ exports.conf = {
 };
 
 exports.help = {
-    name: "customcommandedit",
+    name: "customcommandsedit",
     category: "Server",
     description: "View or change custom commands.",
     usage: "customcommandedit <add/remove/edit> <command> <value>"
