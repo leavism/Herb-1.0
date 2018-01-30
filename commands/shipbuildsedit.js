@@ -24,13 +24,13 @@ exports.run = async (aclient, message, [action, command, ...value], level) => {
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ["sb"],
+    aliases: ["se", "sbe"],
     permLevel: "Moderator"
 };
 
 exports.help = {
-    name: "shipbuilds",
+    name: "shipbuildsedit",
     category: "Server",
     description: "View or change shipbuilds.",
-    usage: "shipbuilds <add/remove/edit> <command> <value>"
+    usage: "shipbuildsedit <add/remove/edit> <command> <value>"
 }

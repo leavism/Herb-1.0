@@ -24,13 +24,13 @@ exports.run = async (aclient, message, [action, command, ...value], level) => {
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ["cc", "customc", "ccommand"],
+    aliases: ["ce", "custome", "cce"],
     permLevel: "Moderator"
 };
 
 exports.help = {
-    name: "customcommand",
+    name: "customcommandedit",
     category: "Server",
     description: "View or change custom commands.",
-    usage: "customcommand <add/remove/edit> <command> <value>"
+    usage: "customcommandedit <add/remove/edit> <command> <value>"
 }
