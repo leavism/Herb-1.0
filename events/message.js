@@ -27,9 +27,9 @@ module.exports = (client, message) => {
   }
   client.talkedRecently.add(message.author.id);
   setTimeout(() => {
-    // Removes the user from the set after 2.5 seconds
+    // Removes the user from the set after 1.5 seconds
     client.talkedRecently.delete(message.author.id);
-  }, 3000);
+  }, 1500);
 
   // Here we separate our "command" name, and our "arguments" for the command.
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
