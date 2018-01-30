@@ -44,10 +44,40 @@ module.exports = (client, message) => {
   // Check whether the command, or alias, exist in the collections defined
   // in app.js.
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
+  const ccmd = require("../data/customcommands/ccommands.json");
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
-  if (!cmd) return;
-
+  // console.log(ccmd[`${command}`])
+  if (!cmd && !ccmd[`${command}`]) {
+    return
+  } else if (!cmd && ccmd[`${command}`]) {
+    message.channel.send(`${ccmd[`${command}`]}`)
+    try {
+      return message.guild.channels.find('name', 'mod-log').send({embed : {
+        title: "Custom Command",
+        description: `${message.member} used a custom command at ${message.createdAt}.`,
+        fields: [
+          {
+            name: "Custom Command",
+            inline: true,
+            value: `${command}`
+          },
+          {
+            name: "Invoker",
+            inline: true,
+            value: `${message.author.tag}(${message.author.id})`
+          },
+          {
+            name: "Destination",
+            inline: true,
+            value: `${message.channel}`
+          }
+        ]
+      }})
+    } catch (e) {
+      return client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
+    }
+  }
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
   if (cmd && !message.guild && cmd.conf.guildOnly)
@@ -58,10 +88,69 @@ module.exports = (client, message) => {
       message.channel.send(`You do not have permission to use this command.
   Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
-      return message.guild.channels.find('name', 'mod-log').send(`${message.author.tag} (${message.author.id}) attemped to run \`\`${cmd.help.name}\`\` in ${message.channel} but failed because they lacked permissions.`);
-
+      try {
+        return message.guild.channels.find('name', 'mod-log').send({embed : {
+          title: "Command Attempt",
+          description: `${message.member} attempted a command but failed due to lack of permissions at ${message.createdAt}.`,
+          fields: [
+            {
+              name: "Command",
+              inline: true,
+              value: `${cmd.help.name}`
+            },
+            {
+              name: "Invoker",
+              inline: true,
+              value: `${message.author.tag}(${message.author.id})`
+            },
+            {
+              name: "Destination",
+              inline: true,
+              value: `${message.channel}`
+            },
+            {
+              name: "Target (if applicable)",
+              inline: true,
+              value: `${message.mentions.member.first()}`
+            }
+          ]
+        }})  
+      } catch (e){
+        client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) attempted command ${cmd.help.name}`);
+      }
     } else {
-      return;
+      return
+    }
+  } else {
+      try {
+        message.guild.channels.find('name', 'mod-log').send({embed : {
+        title: "Command Use",
+        description: `${message.member} successfully used a command at ${message.createdAt}.`,
+        fields: [
+          {
+            name: "Command",
+            inline: true,
+            value: `${cmd.help.name}`
+          },
+          {
+            name: "Invoker",
+            inline: true,
+            value: `${message.author.tag}(${message.author.id})`
+          },
+          {
+            name: "Destination",
+            inline: true,
+            value: `${message.channel}`
+          },
+          {
+            name: "Target (if applicable)",
+            inline: true,
+            value: `${message.mentions.members.first()}`
+          }
+        ]
+      }})
+    } catch (e) {
+        client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
     }
   }
 
@@ -74,10 +163,11 @@ module.exports = (client, message) => {
     message.flags.push(args.shift().slice(1));
   }
   // If the command exists, **AND** the user has permission, run it.
-  client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
+  // client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
 
   //Default mod-log code
   // message.guild.channels.find('name', 'mod-log').send(`${message.author.tag} (${message.author.id}) ran command \`\`recruit\`\` on ${member.user.tag} (${member.id})`)
+  
 
   cmd.run(client, message, args, level);
 };
