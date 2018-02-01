@@ -69,6 +69,8 @@ const init = async () => {
     delete require.cache[require.resolve(`./events/${file}`)];
   });
 
+  client.on("error", (e) => console.error(e));
+
   // Generate a cache of client permissions for pretty perms
   client.levelCache = {};
   for (let i = 0; i < client.config.permLevels.length; i++) {
