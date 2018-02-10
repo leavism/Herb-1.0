@@ -1,7 +1,7 @@
 const ccmd = require("../data/shipbuilds/sbuilds.json");
 const fs = require("fs");
 
-exports.run = async (aclient, message, [action, command, ...value], level) => {
+exports.run = async (client, message, [action, command, ...value], level) => {
     if (action === "add"){
         ccmd[command] = value.join(" ");
         fs.writeFileSync("./data/shipbuilds/sbuilds.json", JSON.stringify(ccmd), (err) => console.log(err));
@@ -17,7 +17,11 @@ exports.run = async (aclient, message, [action, command, ...value], level) => {
         fs.writeFileSync("./data/shipbuilds/sbuilds.json", JSON.stringify(ccmd), (err) => console.log(err));
         return message.channel.send(`The \`\`${command}\`\` shipbuild has been deleted.`);
     } else {
-        return message.channel.send(Object.getOwnPropertyNames(ccmd).sort(), {code : "JSON"})
+        const settings = message.guild
+            ? client.settings.get(message.guild.id)
+            : client.config.defaultSettings;
+
+        return message.channel.send(`List of shipbuilds.\n\n${settings.prefix}`+ Object.getOwnPropertyNames(ccmd).sort().join(`\n${settings.prefix}`), {code : "JSON"})
     }
 }
 
