@@ -116,6 +116,7 @@ module.exports = (client, message) => {
       message.channel.send(`You do not have permission to use this command.
   Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
+  // Posts in mod-log if command was attempted but failed due to lack of permissions.
       try {
         message.guild.channels.find('name', 'mod-log').send({embed : {
           title: "Command Attempt",
@@ -151,6 +152,7 @@ module.exports = (client, message) => {
       return;
     }
   } else {
+    // Posts in mod-log if command was successfully used
       try {
         message.guild.channels.find('name', 'mod-log').send({embed : {
         title: "Command Use",
