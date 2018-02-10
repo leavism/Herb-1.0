@@ -1,0 +1,1002 @@
+{
+    "budget": 6469,
+    "shop-channel": "audit",
+    "store": [
+        {
+            "Item": "Corvette Baguette",
+            "Cost": 3000,
+            "Fdev": true,
+            "Stock": -1,
+            "Description": "60 Frontier USD"
+        },
+        {
+            "Item": "Command",
+            "Cost": 25,
+            "Fdev": false,
+            "Stock": -1,
+            "Description": "Set your own custom command with the bot!"
+        },
+        {
+            "Item": "Dropship Happy Meal",
+            "Cost": 500,
+            "Fdev": true,
+            "Stock": -1,
+            "Description": "10 Frontier USD"
+        },
+        {
+            "Item": "Side Water",
+            "Cost": 13,
+            "Fdev": true,
+            "Stock": -1,
+            "Description": "0.25 Frontier USD"
+        },
+        {
+            "Item": "Viper Blast Energy Drink",
+            "Cost": 50,
+            "Fdev": true,
+            "Stock": -1,
+            "Description": "1 Frontier USD"
+        },
+        {
+            "Item": "Emoji",
+            "Cost": 25,
+            "Fdev": false,
+            "Stock": 10,
+            "Description": "Add an image as an emoji."
+        },
+        {
+            "Item": "Mad Adder Tea",
+            "Cost": 50,
+            "Fdev": true,
+            "Stock": -1,
+            "Description": "1 Frontier USD"
+        }
+    ],
+    "users": [
+        {
+            "id": "102532653470728192",
+            "name": "none",
+            "balance": 125,
+            "inventory": []
+        },
+        {
+            "id": "104362350169030656",
+            "name": "none",
+            "balance": 3,
+            "inventory": []
+        },
+        {
+            "id": "104749724791279616",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "109101872077381632",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "111316719041019904",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "111588858310770688",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "112360839113179136",
+            "name": "none",
+            "balance": 120,
+            "inventory": []
+        },
+        {
+            "id": "118894735682174976",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "119914202273021953",
+            "name": "none",
+            "balance": 40,
+            "inventory": []
+        },
+        {
+            "id": "122474217097658371",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "123130397830807554",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "125774260605157377",
+            "name": "none",
+            "balance": 39,
+            "inventory": []
+        },
+        {
+            "id": "130604133978865664",
+            "name": "Leavism",
+            "balance": 1,
+            "inventory": []
+        },
+        {
+            "id": "131066231921836032",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "133702618156498945",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "137995365965234177",
+            "name": "none",
+            "balance": 60,
+            "inventory": []
+        },
+        {
+            "id": "137998146956427264",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "140583251763920897",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "140893045884190720",
+            "name": "none",
+            "balance": 110,
+            "inventory": []
+        },
+        {
+            "id": "142277496090525696",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "143523754851565568",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "151143864495767553",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "151308748961349632",
+            "name": "none",
+            "balance": 29,
+            "inventory": []
+        },
+        {
+            "id": "151827754709549056",
+            "name": "none",
+            "balance": 134,
+            "inventory": [
+                {
+                    "Item": "Recruit CMDR fumerunner",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "153340570637565953",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "153972714321870849",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "154005925491900417",
+            "name": "none",
+            "balance": 1,
+            "inventory": []
+        },
+        {
+            "id": "154793094615662593",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "154947488359514112",
+            "name": "none",
+            "balance": 21,
+            "inventory": []
+        },
+        {
+            "id": "156489486598012928",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "156563748088315904",
+            "name": "none",
+            "balance": 65,
+            "inventory": [
+                {
+                    "Item": "Unrecruit CMDR fumerunner",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "159034841227067393",
+            "name": "none",
+            "balance": 30,
+            "inventory": []
+        },
+        {
+            "id": "161174561612759040",
+            "name": "SpInFuZoR",
+            "balance": 131,
+            "inventory": []
+        },
+        {
+            "id": "163669867474452481",
+            "name": "none",
+            "balance": 150,
+            "inventory": []
+        },
+        {
+            "id": "167278601241100288",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "168843494259949568",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "169892075570069506",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "171234336790544385",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "171398112747847681",
+            "name": "none",
+            "balance": 50,
+            "inventory": []
+        },
+        {
+            "id": "172424222684086272",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "172453521113743360",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "174017687758831616",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "174293051454259200",
+            "name": "none",
+            "balance": 1,
+            "inventory": []
+        },
+        {
+            "id": "175402939077230593",
+            "name": "havoc235",
+            "balance": 87,
+            "inventory": []
+        },
+        {
+            "id": "176857251364077569",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "181344411374977024",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "182511385295454209",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "183620119593877505",
+            "name": "none",
+            "balance": 35,
+            "inventory": [
+                {
+                    "Item": "Custom Emoji",
+                    "quantity": 2
+                }
+            ]
+        },
+        {
+            "id": "186466934307422208",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "187346422654304256",
+            "name": "none",
+            "balance": 15,
+            "inventory": []
+        },
+        {
+            "id": "190133305809567744",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "190150122850615296",
+            "name": "none",
+            "balance": 30,
+            "inventory": []
+        },
+        {
+            "id": "194291543476011009",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "194979264141983744",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "197430214010208266",
+            "name": "none",
+            "balance": 1,
+            "inventory": []
+        },
+        {
+            "id": "200392544058736640",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "200412789586657291",
+            "name": "none",
+            "balance": 101,
+            "inventory": []
+        },
+        {
+            "id": "206437499315159042",
+            "name": "none",
+            "balance": 150,
+            "inventory": []
+        },
+        {
+            "id": "207160357448318976",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "208091731005014017",
+            "name": "none",
+            "balance": 120,
+            "inventory": []
+        },
+        {
+            "id": "210107378958467073",
+            "name": "none",
+            "balance": 4,
+            "inventory": [
+                {
+                    "Item": "Recruit CMDR fumerunner",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "211747405329072128",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "212035126383738880",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "212117749579776001",
+            "name": "none",
+            "balance": 50,
+            "inventory": [
+                {
+                    "Item": "Viper Blast Energy Drink",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "213428088208490497",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "213793391966814208",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "214802470449315841",
+            "name": "none",
+            "balance": 125,
+            "inventory": []
+        },
+        {
+            "id": "217030549041053698",
+            "name": "none",
+            "balance": 0,
+            "inventory": [
+                {
+                    "Item": "O",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "217040219139080203",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "217413725257203713",
+            "name": "none",
+            "balance": 13,
+            "inventory": []
+        },
+        {
+            "id": "218447420437037056",
+            "name": "none",
+            "balance": 261,
+            "inventory": [
+                {
+                    "Item": "Custom Emoji",
+                    "quantity": 8
+                }
+            ]
+        },
+        {
+            "id": "219980615796260864",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "220522284153044992",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "223604997206573056",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "223874836248657921",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "224271622557663232",
+            "name": "none",
+            "balance": 76,
+            "inventory": []
+        },
+        {
+            "id": "227152558391689217",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "227863127570644992",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "230187769131958273",
+            "name": "none",
+            "balance": 125,
+            "inventory": []
+        },
+        {
+            "id": "231857505888632832",
+            "name": "none",
+            "balance": 120,
+            "inventory": []
+        },
+        {
+            "id": "232977737143287809",
+            "name": "none",
+            "balance": 277,
+            "inventory": []
+        },
+        {
+            "id": "235594021374918657",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "235789073535467520",
+            "name": "none",
+            "balance": 25,
+            "inventory": [
+                {
+                    "Item": "Custom Command",
+                    "quantity": 1
+                },
+                {
+                    "Item": "Custom Emoji",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "235984060537634817",
+            "name": "none",
+            "balance": 81,
+            "inventory": []
+        },
+        {
+            "id": "236969629862461443",
+            "name": "none",
+            "balance": 500,
+            "inventory": []
+        },
+        {
+            "id": "237328565991899136",
+            "name": "none",
+            "balance": 44,
+            "inventory": []
+        },
+        {
+            "id": "240241620220510208",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "247432197303173121",
+            "name": "none",
+            "balance": 55,
+            "inventory": []
+        },
+        {
+            "id": "248031943931854849",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "252680584147501060",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "252933818439303169",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "253011927146561536",
+            "name": "none",
+            "balance": 45,
+            "inventory": []
+        },
+        {
+            "id": "257304679115915270",
+            "name": "Machina Ex Deo [bam13302]",
+            "balance": 302,
+            "inventory": [
+                {
+                    "Item": "SPECIAL 1D",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "263594296169463812",
+            "name": "none",
+            "balance": 6,
+            "inventory": []
+        },
+        {
+            "id": "267443715935698944",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "268075924950482946",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "270733310840274944",
+            "name": "none",
+            "balance": 560,
+            "inventory": []
+        },
+        {
+            "id": "287979996071329795",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "288025369951600660",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "288107554280570881",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "288406285198819328",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "288545683273940993",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "289800118822109184",
+            "name": "none",
+            "balance": 50,
+            "inventory": []
+        },
+        {
+            "id": "292500458876960770",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "293496339072024577",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "297014883738714112",
+            "name": "none",
+            "balance": 1,
+            "inventory": []
+        },
+        {
+            "id": "298600055680794624",
+            "name": "none",
+            "balance": 28,
+            "inventory": []
+        },
+        {
+            "id": "300607981836435457",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "302065347622731776",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "303345554665111552",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "307027810692628480",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "308682839501832192",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "309789020563439617",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "310538093344325633",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "314502500705370113",
+            "name": "none",
+            "balance": 15,
+            "inventory": []
+        },
+        {
+            "id": "319886382304591873",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "327998964114653189",
+            "name": "none",
+            "balance": 27,
+            "inventory": []
+        },
+        {
+            "id": "331396386031534082",
+            "name": "none",
+            "balance": 1,
+            "inventory": []
+        },
+        {
+            "id": "333381633652817921",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "335414124102156288",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "336058089583149056",
+            "name": "none",
+            "balance": 110,
+            "inventory": []
+        },
+        {
+            "id": "337123773918609420",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "337414536241872907",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "337526288782983170",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "338027413617246208",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "338062847709937666",
+            "name": "bevers222",
+            "balance": 5,
+            "inventory": [
+                {
+                    "Item": "Unbreakable Bot",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "341637485605945355",
+            "name": "none",
+            "balance": 19,
+            "inventory": []
+        },
+        {
+            "id": "344403316287209473",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "346725829285249026",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "347212053880111116",
+            "name": "none",
+            "balance": 0,
+            "inventory": []
+        },
+        {
+            "id": "349365986073247764",
+            "name": "none",
+            "balance": 20,
+            "inventory": []
+        },
+        {
+            "id": "352487474737577984",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "354144681216704513",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "354485663170691085",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "357662573036044291",
+            "name": "none",
+            "balance": 200,
+            "inventory": []
+        },
+        {
+            "id": "364332403789135874",
+            "name": "none",
+            "balance": 30,
+            "inventory": []
+        },
+        {
+            "id": "364935551478136832",
+            "name": "none",
+            "balance": 120,
+            "inventory": []
+        },
+        {
+            "id": "367471880770420740",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "369174348050857986",
+            "name": "none",
+            "balance": 100,
+            "inventory": []
+        },
+        {
+            "id": "384746775187292171",
+            "name": "none",
+            "balance": 500,
+            "inventory": []
+        },
+        {
+            "id": "77703771181817856",
+            "name": "none",
+            "balance": 18,
+            "inventory": []
+        },
+        {
+            "id": "89553431638867968",
+            "name": "none",
+            "balance": 15,
+            "inventory": []
+        },
+        {
+            "id": "90534811101315072",
+            "name": "none",
+            "balance": 5,
+            "inventory": []
+        },
+        {
+            "id": "92347079220797440",
+            "name": "none",
+            "balance": 500,
+            "inventory": []
+        },
+        {
+            "id": "95448425708912640",
+            "name": "none",
+            "balance": 10,
+            "inventory": []
+        },
+        {
+            "id": "96690690578198528",
+            "name": "none",
+            "balance": 548,
+            "inventory": []
+        },
+        {
+            "id": "99797792133779456",
+            "name": "none",
+            "balance": 10,
+            "inventory": [
+                {
+                    "Item": "Custom Command",
+                    "quantity": 1
+                },
+                {
+                    "Item": "Custom Emoji",
+                    "quantity": 1
+                }
+            ]
+        }
+    ]
+}

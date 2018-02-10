@@ -26,6 +26,8 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "chalk": "^2.3.0",
+    "console-table": "^0.1.2",
+    "console.table": "^0.10.0",
     "discord.js": "^11.3.0",
     "enmap": "^0.4.2",
     "enmap-level": "^1.0.0",
