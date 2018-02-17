@@ -69,6 +69,15 @@ const init = async () => {
     delete require.cache[require.resolve(`./events/${file}`)];
   });
 
+  const statsFiles = await readdir("./stats");
+  client.logger.log("Loaded statistics tracker.");
+  statsFiles.forEach(file => {
+    const statName = file.split(".")[0];
+    const statReq = require(`./stats/${file}`);
+    client.on(statName, statReq.bind(null, client));
+    delete require.cache[require.resolve(`./stats/${file}`)];
+  });
+
   client.on("error", (e) => console.error(e));
 
   // Generate a cache of client permissions for pretty perms
