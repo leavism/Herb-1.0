@@ -448,7 +448,7 @@ exports.conf = {
     enabled: true,
     guildOnly: true,
     aliases: [],
-    permLevel: "Moderator"
+    permLevel: "User"
 };
 
 exports.help = {
