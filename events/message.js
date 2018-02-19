@@ -198,7 +198,6 @@ module.exports = (client, message) => {
 
   //Default mod-log code
   // message.guild.channels.find('name', 'mod-log').send(`${message.author.tag} (${message.author.id}) ran command \`\`recruit\`\` on ${member.user.tag} (${member.id})`)
-  
 
   cmd.run(client, message, args, level);
 };
