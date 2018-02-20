@@ -4,8 +4,7 @@ const data = require("../data/stats/data.json");
 
 module.exports = (client, message) => {
 
-
-    if(message.channel.type == "dm") return;
+    if(message.channel.type != "text") return;
     
     //Total and sum of characters count
     data.totalMessages++;
