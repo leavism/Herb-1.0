@@ -1,2 +1,4 @@
 /data/settings
 /node_modules
+config.js
+data/stats/data.json
