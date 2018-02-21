@@ -13,7 +13,7 @@ module.exports = (client, message) => {
 
     //Messages from roles count
     var roleList = [];
-    message.member.roles.forEach(r => roleList.push(r.name));
+    message.member.roles.forEach(r => roleList.push(r.name)).catch(err => console.log(err));
     
     if(roleList.includes(data.settings.adminRole)){
         data.adminMessages++;
