@@ -30,6 +30,7 @@ module.exports = (client, message) => {
             data.strangerMessages++;
         }
     } catch (err) {
+        console.log(message);
         console.log(err);
     }
 
