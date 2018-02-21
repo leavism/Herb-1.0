@@ -12,22 +12,27 @@ module.exports = (client, message) => {
 
 
     //Messages from roles count
-    var roleList = [];
-    message.member.roles.forEach(r => roleList.push(r.name)).catch(err => console.log(err));
-    
-    if(roleList.includes(data.settings.adminRole)){
-        data.adminMessages++;
-    } else if(roleList.includes(data.settings.regRole)){
-        data.regularMessages++;
-    } else if(roleList.includes(data.settings.simbianRole)){
-        data.simbianMessages++;
-    } else if(roleList.includes(data.settings.ambassadorRole)){
-        data.ambassadorMessages++;
-    } else if(roleList.includes(data.settings.guestRole)){
-        data.guestMessages++;
-    } else if(roleList.length == 1){
-        data.strangerMessages++;
+    try {
+        var roleList = [];
+        message.member.roles.forEach(r => roleList.push(r.name));
+        
+        if(roleList.includes(data.settings.adminRole)){
+            data.adminMessages++;
+        } else if(roleList.includes(data.settings.regRole)){
+            data.regularMessages++;
+        } else if(roleList.includes(data.settings.simbianRole)){
+            data.simbianMessages++;
+        } else if(roleList.includes(data.settings.ambassadorRole)){
+            data.ambassadorMessages++;
+        } else if(roleList.includes(data.settings.guestRole)){
+            data.guestMessages++;
+        } else if(roleList.length == 1){
+            data.strangerMessages++;
+        }
+    } catch (err) {
+        console.log(err);
     }
+
 
     if(message.author.bot) data.botMessages++;
 
