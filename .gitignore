@@ -1,7 +1,2 @@
-/data/settings
-/node_modules
 config.js
-data/stats/data.json
-config.js
-data/stats/data.json
-data/shipbuilds/sbuilds.json
+/data
