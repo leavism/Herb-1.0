@@ -6,7 +6,7 @@ exports.run = async (client, message, [action, command, ...value], level) => {
         ? client.settings.get(message.guild.id)
         : client.config.defaultSettings;
 
-    return message.channel.send(`List of shipbuilds.\n\n${settings.prefix}`+ Object.getOwnPropertyNames(ccmd).sort().join(`\n${settings.prefix}`), {code : "JSON"})
+        return message.channel.send(`List of custom commands. Mods and Admins looking to add/edit/remove shipbuilds, use ${settings.prefix}cce\n\n${settings.prefix}` + Object.getOwnPropertyNames(ccmd).sort().join(`\n${settings.prefix}`) + "\n\nIf you would like to add your own or suggest an improvement, let an Admin or Moderator know!", {code : ""})
 }
 
 exports.conf = {
