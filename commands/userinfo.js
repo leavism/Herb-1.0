@@ -16,6 +16,9 @@ exports.run = async (client, message, [member], level) => {
     }
   )
 
+  let roles = member.roles.map(m => m.name).filter(m => m != '@everyone').join(', ') // Roles collection is mapped to array with only role names. Then filters out the @everyone role
+  if(roles.length <= 0) roles = "None";
+
   message.channel.send({embed : {
     color: member.displayColor,
     title: member.user.username + "#" + member.user.discriminator + ` (${member.displayName})`,
@@ -27,7 +30,7 @@ exports.run = async (client, message, [member], level) => {
         name: 'Joined Discord on',
         inline: true,
         value: joinedDDate.getDate() + ' ' + joinedDDate.getMonthText() + " " + joinedDDate.getFullYear() +
-              `\n(${Math.round(Math.abs(joinedDDate - new Date())/(24*60*60*1000))} days ago)`, // Joined Discord date - today divided by days in milliseconds
+              `\n(${Math.round(Math.abs(joinedDDate - new Date())/(24*60*60*1000))} days ago)` // Joined Discord date - today divided by days in milliseconds
       },
       {
         name: `Joined ${message.guild} on`,
@@ -38,7 +41,7 @@ exports.run = async (client, message, [member], level) => {
       {
         name: 'Roles',
         inline: true,
-        value: member.roles.map(m => m.name).filter(m => m != '@everyone').join(', ') // Roles collection is mapped to array with only role names. Then filters out the @everyone role
+        value: roles
       }
     ]
   }});
