@@ -21,14 +21,14 @@ module.exports = (client, message) => {
   // which is set in the configuration file.
   if (message.content.indexOf(settings.prefix) !== 0) return;
 
-  // Command cooldown, adds the user to the set so that they can't talk for 2.5 seconds
-  if (client.talkedRecently.has(message.author.id)){
+  // Command cooldown, adds the user to the set so that they can't talk for 1.5 seconds
+  if (client.commandRecently.has(message.author.id)){
     return message.reply("Woah there buddy. Lets not spam the bot.");
   }
-  client.talkedRecently.add(message.author.id);
+  client.commandRecently.add(message.author.id);
   setTimeout(() => {
     // Removes the user from the set after 1.5 seconds
-    client.talkedRecently.delete(message.author.id);
+    client.commandRecently.delete(message.author.id);
   }, 1500);
 
   // Here we separate our "command" name, and our "arguments" for the command.
@@ -49,12 +49,13 @@ module.exports = (client, message) => {
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
   // console.log(ccmd[`${command}`])
+  const botLogC = message.guild.channels.find("name", settings.botLogChannel);
   if (!cmd && !ccmd[`${command}`] && !sb[`${command}`]) {
     return
   } else if (!cmd && ccmd[`${command}`] && !sb[`${command}`]) {
     message.channel.send(`${ccmd[`${command}`]}`)
     try {
-      return message.guild.channels.find('name', 'mod-log').send({embed : {
+      return botLogC.send({embed : {
         title: "Custom Command",
         description: `${message.member} used a custom command at ${message.createdAt}.`,
         fields: [
@@ -81,7 +82,7 @@ module.exports = (client, message) => {
   } else if (!cmd && !ccmd[`${command}`] && sb[`${command}`]){
     message.channel.send(`${sb[`${command}`]}`)
     try {
-      return message.guild.channels.find('name', 'mod-log').send({embed : {
+      return botLogC.send({embed : {
         title: "Custom Command",
         description: `${message.member} used a custom command at ${message.createdAt}.`,
         fields: [
@@ -118,7 +119,7 @@ module.exports = (client, message) => {
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
   // Posts in mod-log if command was attempted but failed due to lack of permissions.
       try {
-        message.guild.channels.find('name', 'mod-log').send({embed : {
+        botLogC.send({embed : {
           title: "Command Attempt",
           description: `${message.member} attempted a command but failed due to lack of permissions at ${message.createdAt}.`,
           fields: [
@@ -154,7 +155,7 @@ module.exports = (client, message) => {
   } else {
     // Posts in mod-log if command was successfully used
       try {
-        message.guild.channels.find('name', 'mod-log').send({embed : {
+        botLogC.send({embed : {
         title: "Command Use",
         description: `${message.member} successfully used a command at ${message.createdAt}.`,
         fields: [
