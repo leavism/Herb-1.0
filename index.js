@@ -41,7 +41,10 @@ client.aliases = new Enmap();
 client.settings = new Enmap({provider: new EnmapLevel({name: "settings"})});
 
 // Command cooldown
-client.talkedRecently = new Set();
+client.commandRecently = new Set();
+
+// Spam talk cooldown
+client.talkRecently = new Set();
 
 // We're doing real fancy node 8 async/await stuff here, and to do that
 // we need to wrap stuff in an anonymous function. It's annoying but it works.
@@ -76,6 +79,15 @@ const init = async () => {
     const statReq = require(`./stats/${file}`);
     client.on(statName, statReq.bind(null, client));
     delete require.cache[require.resolve(`./stats/${file}`)];
+  });
+
+  const modFiles = await readdir("./moderation");
+  client.logger.log("Loaded moderation tracker.");
+  modFiles.forEach(file => {
+    const modName = file.split(".")[0];
+    const modReq = require(`./moderation/${file}`);
+    client.on(modName, modReq.bind(null, client));
+    delete require.cache[require.resolve(`./moderation/${file}`)];
   });
 
   client.on("error", (e) => console.error(e));
