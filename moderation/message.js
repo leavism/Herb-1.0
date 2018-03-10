@@ -11,14 +11,14 @@ module.exports = (client, message) => {
     if (message.author.bot) return;
     var muteRole = message.guild.roles.find("name","Mute");
 
-    if(message.embeds.length != 0) {
-        message.member.roles.forEach(r => {
-            message.member.removeRole(r).catch(console.error);
-        })
-        message.member.addRole(muteRole);
-        modLogC.send(`${adminRole}\n${message.member} has been muted for potentially self-botting.`)
-        return message.channel.send(`${message.member} has been muted for potentially self-botting.`);
-    }
+    // if(message.embeds.length != 0) {
+    //     message.member.roles.forEach(r => {
+    //         message.member.removeRole(r).catch(console.error);
+    //     })
+    //     message.member.addRole(muteRole);
+    //     modLogC.send(`${adminRole}\n${message.member} has been muted for potentially self-botting.`)
+    //     return message.channel.send(`${message.member} has been muted for potentially self-botting.`);
+    // }
 
     if(client.talkRecently.has(message.author.id)) {
         message.member.roles.forEach(r => {
