@@ -4,6 +4,8 @@ module.exports = (client, oldMessage, newMessage) => {
     ? client.settings.get(oldMessage.guild.id)
     : client.config.defaultSettings;
 
+    if (message.author.bot) return;
+
     const modLogC = oldMessage.guild.channels.find("name", settings.modLogChannel);
     if(oldMessage.content.length >= 900 || newMessage.content.length >= 900){
         modLogC.send(`__${oldMessage.author} changed their old message:__`);
