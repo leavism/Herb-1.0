@@ -31,7 +31,7 @@ module.exports = (client, message) => {
     client.talkRecently.add(message.author.id);
     setTimeout(() => {
         client.talkRecently.delete(message.author.id);
-    }, 300);
+    }, 200);
 
     var bannedWords = ["nigga", "nibba", "nigger", "gay", "gaylord", "fag", "faggot", "gays", "niggas", "nigg", "fags", "faggots", "ni🇧 🇧a", "ni🅱🅱a", "ni🅱 🅱a"]
     var words = message.content.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, "");
