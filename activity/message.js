@@ -1,51 +1,51 @@
 const fs = require("fs");
 const data = require("../data/activity/data.json");
 
-
 module.exports = (client, message) => {
     var member = message.member;
     var actMember = getMember(member);
 
     if (message.author.bot) return;
     if (message.content.startsWith("-")) return;
-
-    if (!checkMember(member)) {
-        makeMember(member);
-        fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
-    }
-
-    if (client.actTalk.has(message.author.id)) {
-        return console.log("Recently counted")
-    }
-
-    nameProcess(member);
-    addXP(actMember, calcXP(message.content));
-
-    if (levelUpProcess(actMember)) {
-        if (wantsNotif(actMember)) {
-            message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: to no longer get pinged for this.`)
-                .then(msg => {
-                    msg.react("🗣");
-                    const filter = (reaction, user) => reaction.emoji.name === "🗣" && user.id === member.id;
-                    const collector = msg.createReactionCollector(filter, { time: 10000 });
-                    collector.on('collect', r => {
-                        data.noNotifications.push(member.id);
-                        message.channel.send("You will no longer be pinged.")
-                        fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
-                    });
-                    msg.delete(10000);
-                })
-        } else {
-            message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${message.member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
+    try {
+        if (!checkMember(member)) {
+            makeMember(member);
+            fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
         }
-    }
-
-    fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
-
-    client.actTalk.add(message.author.id);
-    setTimeout(() => {
-        client.actTalk.delete(message.author.id);
-    }, 120000)
+    
+        if (client.actTalk.has(message.author.id)) {
+            return console.log("Recently counted")
+        }
+    
+        nameProcess(member);
+        addXP(actMember, calcXP(message.content));
+    
+        if (levelUpProcess(actMember)) {
+            if (wantsNotif(actMember)) {
+                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: to no longer get pinged for this.`)
+                    .then(msg => {
+                        msg.react("🗣");
+                        const filter = (reaction, user) => reaction.emoji.name === "🗣" && user.id === member.id;
+                        const collector = msg.createReactionCollector(filter, { time: 10000 });
+                        collector.on('collect', r => {
+                            data.noNotifications.push(member.id);
+                            message.channel.send("You will no longer be pinged.")
+                            fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
+                        });
+                        msg.delete(10000);
+                    })
+            } else {
+                message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${message.member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
+            }
+        }
+    
+        fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
+    
+        client.actTalk.add(message.author.id);
+        setTimeout(() => {
+            client.actTalk.delete(message.author.id);
+        }, 120000)
+    } catch (err){}
 };
 
 function checkMember(memberObj) {
