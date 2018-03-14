@@ -12,12 +12,7 @@ module.exports = (client, message) => {
     var muteRole = message.guild.roles.find("name","Mute");
 
     if(client.talkRecently.has(message.author.id)) {
-        message.member.roles.forEach(r => {
-            message.member.removeRole(r).catch(console.error);
-        })
-        message.member.addRole(muteRole);
-        modLogC.send(`${adminRole}\n${message.member} has been muted for potential spam.`)
-        return message.channel.send(`${message.member} has been muted for potential spam.`);
+        return modLogC.send(`${message.member.displayName} could be spamming in ${message.channel}.`)
     }
     client.talkRecently.add(message.author.id);
     setTimeout(() => {
@@ -26,7 +21,7 @@ module.exports = (client, message) => {
 
 
     // Profanity filter
-    var bannedWords = ["nigga", "nibba", "nigger", "gay", "gaylord", "fag", "faggot", "gays", "niggas", "nigg", "fags", "faggots", "ni🇧 🇧a", "ni🅱🅱a", "ni🅱 🅱a", "ghey"]
+    var bannedWords = ["nigga", "nibba", "nigger", "gay", "gaylord", "fag", "faggot", "fgt", "gays", "niggas", "nigg", "fags", "faggots", "ni🇧 🇧a", "ni🅱🅱a", "ni🅱 🅱a", "ghey"]
     var words = message.content.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, "");
 
     words = words.toLowerCase();
