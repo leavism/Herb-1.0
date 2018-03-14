@@ -10,7 +10,8 @@ exports.run = async (client, message, [...args], level) => {
     if(material){
         let color = setColor(material.type)
         let type = setType(material.type)
-        let name = toTitleCase(material.name)
+        let nickname = setName(material.name)
+        let name = toTitleCase(nickname)
         let where = material.where
         let trader = setTrader(material.type)
         let img = setImg(material.rarity)
@@ -58,6 +59,48 @@ exports.help = {
     description: "Looks up engineering materials.",
     usage: "find Craked Industrial Firmware"
 };
+
+function setName(name){
+    switch (name){
+        case "cif":
+            return "cracked industrial firmware"
+            break;
+        case "crack":
+            return "cracked industrial firmware"
+            break;
+        case "mef":
+            return "modified embedded firmware"
+            break;  
+        case "dwe":
+            return "datamined wake exceptions"
+            break;  
+        case "cdc":
+            return "core dynamics composites"
+            break;  
+        case "aec":
+            return "Adaptive Encryptors Capture"
+            break;  
+        case "efc":
+            return "Exquisite focus crystals"
+            break;  
+        case "mga":
+            return "Military Grade Alloys"
+            break;  
+        case "mcf":
+            return "Modified Consumer Firmware"
+            break;  
+        case "rfc":
+            return "Refined Focus Crystals"
+            break;  
+        case "slf":
+            return "Specialised Legacy Firmware"
+            break;     
+        case "ued":
+            return "Unexpected Emission Data"
+            break;            
+
+    }
+}
 
 function toTitleCase(str)
 {

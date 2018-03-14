@@ -5,6 +5,11 @@
             "type": "M",
             "where": "Ship salvage (Combat ships), USS (High grade emissions)",
             "rarity": "Very Rare"
+        },{
+            "name": "cdc",
+            "type": "M",
+            "where": "Ship salvage (Combat ships), USS (High grade emissions)",
+            "rarity": "Very Rare"
         },
         {
             "name": "zirconium",
@@ -62,6 +67,11 @@
             "rarity": "Common"
         },{
             "name": "unexpected emission data",
+            "type": "E",
+            "where": "Ship scanning (Combat ships), USS",
+            "rarity": "Standard"
+        },{
+            "name": "ued",
             "type": "E",
             "where": "Ship scanning (Combat ships), USS",
             "rarity": "Standard"
@@ -161,6 +171,11 @@
             "where": "Mission reward, Surface data point, USS",
             "rarity": "Very Common"
         },{
+            "name": "slf",
+            "type": "E",
+            "where": "Mission reward, Surface data point, USS",
+            "rarity": "Very Common"
+        },{
             "name": "ship systems data",
             "type": "T",
             "where": "Thargoid ship encounter",
@@ -217,6 +232,11 @@
             "rarity": "Very Common"
         },{
             "name": "refined focus crystals",
+            "type": "M",
+            "where": "Mission reward, USS (Weapons fire)",
+            "rarity": "Rare"
+        },{
+            "name": "rfc",
             "type": "M",
             "where": "Mission reward, USS (Weapons fire)",
             "rarity": "Rare"
@@ -331,7 +351,17 @@
             "where": "Surface data point",
             "rarity": "Very Rare"
         },{
+            "name": "mef",
+            "type": "E",
+            "where": "Surface data point",
+            "rarity": "Very Rare"
+        },{
             "name": "modified consumer firmware",
+            "type": "E",
+            "where": "Mission reward, USS, Surface data point",
+            "rarity": "Common"
+        },{
+            "name": "mcf",
             "type": "E",
             "where": "Mission reward, USS, Surface data point",
             "rarity": "Common"
@@ -342,6 +372,11 @@
             "rarity": "Very Rare"
         },{
             "name": "military grade alloys",
+            "type": "M",
+            "where": "USS (High grade emissions), Mission reward",
+            "rarity": "Very Rare"
+        },{
+            "name": "mga",
             "type": "M",
             "where": "USS (High grade emissions), Mission reward",
             "rarity": "Very Rare"
@@ -511,6 +546,11 @@
             "where": "Mission reward",
             "rarity": "Very Rare"
         },{
+            "name": "efc",
+            "type": "M",
+            "where": "Mission reward",
+            "rarity": "Very Rare"
+        },{
             "name": "exceptional scrambled emission data",
             "type": "E",
             "where": "Ship scanning, USS, Mission reward",
@@ -546,12 +586,27 @@
             "where": "High wake scanning, Mission reward, USS (Encoded emissions)",
             "rarity": "Very Rare"
         },{
+            "name": "dwe",
+            "type": "E",
+            "where": "High wake scanning, Mission reward, USS (Encoded emissions)",
+            "rarity": "Very Rare"
+        },{
             "name": "crystal shards",
             "type": "M",
             "where": "Ship salvage (Combat ships), Surface POI",
             "rarity": "Very Common"
         },{
             "name": "cracked industrial firmware",
+            "type": "E",
+            "where": "Surface data point, Mission reward",
+            "rarity": "Standard"
+        },{
+            "name": "crack",
+            "type": "E",
+            "where": "Surface data point, Mission reward",
+            "rarity": "Standard"
+        },{
+            "name": "cif",
             "type": "E",
             "where": "Surface data point, Mission reward",
             "rarity": "Standard"
@@ -672,6 +727,11 @@
             "rarity": "Ship scanning (Transport ships), Mission reward"
         },{
             "name": "adaptive encryptors capture",
+            "type": "E",
+            "where": "Surface POI, USS",
+            "rarity": "Very Rare"
+        },{
+            "name": "aec",
             "type": "E",
             "where": "Surface POI, USS",
             "rarity": "Very Rare"
