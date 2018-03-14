@@ -1,0 +1,81 @@
+{
+    "raws": [
+        {
+            "name": "carbon",
+            "number": "1"
+        },{
+            "name": "iron",
+            "number": "2"
+        },
+        {
+            "name": "nickel",
+            "number": "3"
+        },{
+            "name": "phosphorus",
+            "number": "4"
+        },{
+            "name": "sulphur",
+            "number": "5"
+        },{
+            "name": "arsenic",
+            "number": "6"
+        },{
+            "name": "chromium",
+            "number": "7"
+        },{
+            "name": "germanium",
+            "number": "8"
+        },{
+            "name": "manganese",
+            "number": "9"
+        },{
+            "name": "selenium",
+            "number": "10"
+        },{
+            "name": "vanadium",
+            "number": "11"
+        },{
+            "name": "zinc",
+            "number": "12"
+        },{
+            "name": "zirconium",
+            "number": "13"
+        },{
+            "name": "cadmium",
+            "number": "14"
+        },{
+            "name": "mercury",
+            "number": "15"
+        },{
+            "name": "molybdenum",
+            "number": "16"
+        },{
+            "name": "niobium",
+            "number": "17"
+        },{
+            "name": "tin",
+            "number": "18"
+        },{
+            "name": "tungsten",
+            "number": "19"
+        },{
+            "name": "antimony",
+            "number": "20"
+        },{
+            "name": "polonium",
+            "number": "21"
+        },{
+            "name": "ruthenium",
+            "number": "22"
+        },{
+            "name": "technetium",
+            "number": "23"
+        },{
+            "name": "tellurium",
+            "number": "24"
+        },{
+            "name": "yttrium",
+            "number": "25"
+        }
+    ]
+}

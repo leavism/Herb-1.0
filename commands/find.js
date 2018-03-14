@@ -1,4 +1,5 @@
 const data = require("../data/find/data.json");
+const raw = require("../data/find/raw.json");
 const Discord = require("discord.js")
 
 exports.run = async (client, message, [...args], level) => {
@@ -23,6 +24,15 @@ exports.run = async (client, message, [...args], level) => {
             .addField("Material Type:", type)
             .addField("Rarity:", rarity)
             .addField("Closest Trader to Nu Tauri:", trader)
+
+        if(type == "Raw"){
+            let numberObj = findId(name)
+            if(numberObj){
+                let number = numberObj.number
+                embed.addField("Eddb.io Prospecting Link:", "https://eddb.io/body?m="+number+"&e=1&p=0&t=0&d=0&r=14759&a=100")
+            }
+        }
+        
         message.channel.send({embed});
     }
     else{
@@ -60,6 +70,12 @@ function find(mat){
         return item.name.toLowerCase() === mat.toLowerCase()
     })
 }
+function findId(name){
+    return raw.raws.find(item => {
+        return item.name.toLowerCase() === name.toLowerCase()
+    })
+}
+
 
 function setTrader(type){
     switch(type){
