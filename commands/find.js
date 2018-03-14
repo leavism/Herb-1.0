@@ -3,8 +3,8 @@ const raw = require("../data/find/raw.json");
 const Discord = require("discord.js")
 
 exports.run = async (client, message, [...args], level) => {
+    
     let toFind = args.join(" ").toLowerCase();
-
     let material = find(toFind)
 
     if(material){
@@ -16,6 +16,7 @@ exports.run = async (client, message, [...args], level) => {
         let trader = setTrader(material.type)
         let img = setImg(material.rarity)
         let rarity = material.rarity
+
 
         const embed = new Discord.RichEmbed()
             .setTitle(name)
@@ -30,6 +31,8 @@ exports.run = async (client, message, [...args], level) => {
             let numberObj = findId(name)
             if(numberObj){
                 let number = numberObj.number
+                
+                
                 embed.addField("Eddb.io Prospecting Link:", "https://eddb.io/body?m="+number+"&e=1&p=0&t=0&d=0&r=14759&a=100")
             }
         }
@@ -97,7 +100,10 @@ function setName(name){
             break;     
         case "ued":
             return "Unexpected Emission Data"
-            break;            
+            break; 
+        default:
+            return name
+            break;
 
     }
 }
