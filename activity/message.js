@@ -13,9 +13,7 @@ module.exports = (client, message) => {
             fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
         }
     
-        if (client.actTalk.has(message.author.id)) {
-            return console.log("Recently counted")
-        }
+        if (client.actTalk.has(message.author.id)) return
     
         nameProcess(member);
         addXP(actMember, calcXP(message.content));
@@ -32,7 +30,7 @@ module.exports = (client, message) => {
                             message.channel.send("You will no longer be pinged.")
                             fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
                         });
-                        msg.delete(10000);
+                        msg.delete(60000);
                     })
             } else {
                 message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${message.member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
@@ -44,7 +42,7 @@ module.exports = (client, message) => {
         client.actTalk.add(message.author.id);
         setTimeout(() => {
             client.actTalk.delete(message.author.id);
-        }, 120000)
+        }, 10000)
     } catch (err){}
 };
 
@@ -87,7 +85,7 @@ function calcXP(messageContent) {
 }
 
 function addXP(member, amount) {
-    member.xp += amount;
+    member.xp += amount * 2;
     console.log(`Added ${amount} XP`);
 }
 
