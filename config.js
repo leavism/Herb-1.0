@@ -32,6 +32,7 @@ const config = {
     "goodbyeChannel": "welcome",
     "goodbyeMessage": "{{user}} has left. Hope they had a nice stay. **RIP**",
     "goodbyeEnabled": "true",
+    "botLogChannel" : "bot-log"
   },
 
   // PERMISSION LEVEL DEFINITIONS.
