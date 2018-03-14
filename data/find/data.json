@@ -551,7 +551,7 @@
             "where": "Ship salvage (Combat ships), Surface POI",
             "rarity": "Very Common"
         },{
-            "name": "cracked industrial firmware ",
+            "name": "cracked industrial firmware",
             "type": "E",
             "where": "Surface data point, Mission reward",
             "rarity": "Standard"
