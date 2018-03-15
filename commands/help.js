@@ -21,10 +21,7 @@ exports.run = (client, message, args, level) => {
     const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
     let currentCategory = "";
-    let output = `To run a command in Simbad, use \`\`${settings.prefix}<command>\`\`.` +
-    `\nFor example, \`\`${settings.prefix}ping\`\` will run the ping command.` +
-    `\n\nUse \`\`help <command>\`\` to view more information about a specific command.` +
-    `\n\n**__Available commands__**\n`;
+    let output = `**__Available commands__**\n`;
 
     const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
     sorted.forEach( c => {
@@ -34,7 +31,17 @@ exports.run = (client, message, args, level) => {
         currentCategory = cat;
       }
       output += `**${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)}** : ${c.help.description}\n`;
+      if(output.length >= 1900/2){
+        message.channel.send(output);
+        output = "";
+      }
     });
+    // if(output.length >= 1900){
+    //   let splitFirst = output.substring(0,1900/2);
+    //   let splitSecond = output.substring(1900/2 + 1, output.length)
+    //   message.channel.send(splitFirst);
+    //   return message.channel.send(splitSecond)
+    // }
     message.channel.send(output);
   } else {
     // Show individual command's help.
