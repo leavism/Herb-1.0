@@ -14,6 +14,6 @@ exports.help = {
   name: "ping",
   category: "Miscelaneous",
   description: "Gets Discord and API latency.",
-  usage: "ping",
+  usage: "?ping",
   example: ["?ping"]
 };

@@ -45,7 +45,7 @@ exports.help = {
     name: "distance",
     category: "Elite",
     description: "Gets the distance between two systems.",
-    usage: "distance <system name>, <system name>",
+    usage: "?distance <system name>, <system name>",
     example: ["?dist nu tauri, 45 tauri", "?dist LHS 3447, Sol"]
 };
 

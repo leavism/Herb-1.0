@@ -60,7 +60,7 @@ exports.help = {
     name: "find",
     category: "Elite",
     description: "Looks up engineering materials.",
-    usage: "find <data/material>",
+    usage: "?find <data/material>",
     example: ["?find cracked industrial firmware","?find modified embedded firmware", "?find core dynamics composites"]
 };
 

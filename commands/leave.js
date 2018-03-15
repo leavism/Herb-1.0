@@ -29,6 +29,6 @@ exports.help = {
   name: "leave",
   category: "Server",
   description: "Removes a specified role. Do not mention the role.",
-  usage: "leave <role name>",
+  usage: "?leave <role name>",
   example: ["?leave Bgs", "?leave Elite", "?leave Bgs"]
 };

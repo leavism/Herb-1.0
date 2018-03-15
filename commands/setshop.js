@@ -343,6 +343,6 @@ exports.help = {
     name: "setshop",
     category: "Shop",
     description: "Administrator commands to interact with the Simbit Shop.",
-    usage: "setshop <budget/award/...>",
+    usage: "?setshop <budget/award/...>",
     example: ["?setshop budget", "?setshop award 10 @Leavism#2011"]
 };
