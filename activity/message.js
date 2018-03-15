@@ -30,6 +30,10 @@ module.exports = (client, message) => {
                             message.channel.send("You will no longer be pinged.")
                             fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
                         });
+                        collector.on("end", r => {
+                            msg.clearReactions();
+                            msg.edit(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nUse the ?levelnotif command to toggle pings for level ups.`)
+                        })
                         // msg.delete(60000);
                     })
             } else {
