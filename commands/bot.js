@@ -10,7 +10,7 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     .setTitle(client.user.tag)
     .setColor(0x04ff70)
     .setThumbnail(client.user.avatarURL)
-    .setDescription(`[Usage Guide](https://leavism.gitbooks.io/sophie/) | [Leavism](https://github.com/leavism)`)
+    .setDescription(`[Usage Guide](https://leavism.gitbooks.io/sophie/) | [Leavism](https://github.com/leavism) | [Bevers222](https://github.com/bevers222)`)
     .addField("🍽️ Serving", `${client.guilds.size} Servers\n${client.users.size} Users`, true)
     .addField("🕑 Uptime", duration, true)
     .setFooter("Use ?help for a list of available commands.")
