@@ -455,5 +455,6 @@ exports.help = {
     name: "shop",
     category: "Shop",
     description: "Commands to interact with the Simbit Shop.",
-    usage: "shop <list/buy/bank>"
+    usage: "shop <list/buy/bank>",
+    example: ["?shop list", "?shop buy 1 Emoji", "?shop bank @Leavism#2011"]
 };

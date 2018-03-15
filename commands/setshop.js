@@ -126,13 +126,6 @@ exports.run = async (async, message, [action, ...values], level) => {
             }
             message.channel.send(new Discord.Attachment("./data/sortedUsers.txt", "Sorted_User_List.txt"))
             break;
-        case "nameeveryone":
-            data.users.forEach(user => {
-                let discordMember = message.guild.members.find('id', user.id);
-                if(discordMember != null) user.name = discordMember.displayName;
-            })
-            fs.writeFileSync("./data/shop/data.json", JSON.stringify(data), (err) => console.log(err));
-            break;
         default: 
             message.channel.send("These are the Administrative commands for the Simbit Shop.\n\nSubcommands:"+
             "\n\tbudget\t\tTo display the current Simbit budget." + 
@@ -350,5 +343,6 @@ exports.help = {
     name: "setshop",
     category: "Shop",
     description: "Administrator commands to interact with the Simbit Shop.",
-    usage: "setshop <budget/award/...>"
+    usage: "setshop <budget/award/...>",
+    example: ["?setshop budget", "?setshop award 10 @Leavism#2011"]
 };

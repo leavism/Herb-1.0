@@ -29,5 +29,6 @@ exports.help = {
   name: "bot",
   category: "Miscelaneous",
   description: "Gives some useful bot statistics",
-  usage: "bot"
+  usage: "bot",
+  example: ["?bot"]
 };
