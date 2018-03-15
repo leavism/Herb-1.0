@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 data/settings
 data/activity/data.json
 data/activity/tracker.json
@@ -8,4 +5,4 @@ data/customcommands/ccommands.json
 data/eng/data.json
 data/shipbuilds/sbuilds.json
 data/stats/data.json
->>>>>>> a5ea315739ef196d79daf1f986c051d664e5d354
+node_modules
