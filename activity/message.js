@@ -2,16 +2,16 @@ const fs = require("fs");
 const data = require("../data/activity/data.json");
 
 module.exports = (client, message) => {
-    var member = message.member;
-    var actMember = getMember(member);
-
-    if (message.author.bot) return;
-    if (message.content.startsWith("-")) return;
     try {
-        if (!checkMember(member)) {
-            makeMember(member);
-            fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
-        }
+        var member = message.member;
+        var actMember = getMember(member);
+
+        if (message.author.bot) return;
+        if (message.content.startsWith("-")) return;
+            if (!checkMember(member)) {
+                makeMember(member);
+                fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
+            }
     
         if (client.actTalk.has(message.author.id)) return
     
@@ -33,7 +33,7 @@ module.exports = (client, message) => {
                         msg.delete(60000);
                     })
             } else {
-                message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${message.member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
+                message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
             }
         }
     
