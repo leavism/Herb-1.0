@@ -31,5 +31,6 @@ exports.help = {
     name: "ban",
     category: "Moderation",
     description: "Bans someone",
-    usage: "ban @Leavism#2011"
+    usage: "ban <mention Discord user>",
+    example: ["?ban @Leavism#2011","?ban @Sam Pole#6969"]
 };

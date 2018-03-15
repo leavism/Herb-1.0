@@ -26,7 +26,8 @@ exports.help = {
   name: "levelnotifications",
   category: "Activity",
   description: "Toggles whether you'll be notified of activity level ups!",
-  usage: "?levelnotification / ?levelnotif / ?lvlnotif"
+  usage: "levelnotification",
+  example: ["?levelnotification", "?levelnotif", "?lvlnotif"]
 };
 
 function getMember(memberObj){
