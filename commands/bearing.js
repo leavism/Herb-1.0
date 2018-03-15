@@ -1,20 +1,21 @@
 exports.run = async(client, message, args) => {
 
     try {
-        var origLat = args[0].replace("_", "-");
-        var origLong = args[1].replace("_","-");
-        var destLat = args[2].replace("_","-");
-        var destLong = args[3].replace("_","-");
+        var origLat = parseInt(args[0].replace("_", "-"));
+        var origLong =parseInt( args[1].replace("_","-"));
+        var destLat = parseInt(args[2].replace("_","-"));
+        var destLong =parseInt( args[3].replace("_","-"));
     } catch (error){
         return message.reply("Please use _ (underscore) in place of the negative sign.\n\nFor example: ``?heading _10 41 _20 290``")
     }
     
-    if(origLat && origLong && destLat && destLong && !isNumber([origLat, origLong, destLat, destLong])) {
+    if(isNumber([origLat, origLong, destLat, destLong])) {
         let heading = calculateBearing(origLat, origLong, destLat, destLong)
+
+        if(isNaN(heading)) return message.channel.send("That heading is not possible.");
 
         message.channel.send('**Origin Coords**:\nLat: ' + origLat + ' **|** Long: ' + origLong + '\n' + '**Destination Coords**:\nLat: ' + destLat + ' **|** Long: ' + destLong + '\n\n' + 'Set your compass to ' + heading + ' degrees, CMDR!') 
     } else {
-        // console.log(origLat)
         message.reply("Include the origin longitude and latitude, along with the destination longitude and latitude. Use _ (underscore) in place of negative signs. For example:\n``?heading 20 _41 10 _170``");
     }
 }
@@ -35,7 +36,7 @@ exports.help = {
 };
 
 function calculateBearing(oLat, oLong, dLat, dLong){
-		
+    
     var orLat = oLat * Math.PI/180;
     var orLong = oLong * Math.PI/180;
     var deLat = dLat * Math.PI/180;
