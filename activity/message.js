@@ -20,17 +20,17 @@ module.exports = (client, message) => {
     
         if (levelUpProcess(actMember)) {
             if (wantsNotif(actMember)) {
-                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: to no longer get pinged for this.`)
+                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: within 60 seconds to no longer get pinged for this.`)
                     .then(msg => {
                         msg.react("🗣");
                         const filter = (reaction, user) => reaction.emoji.name === "🗣" && user.id === member.id;
-                        const collector = msg.createReactionCollector(filter, { time: 10000 });
+                        const collector = msg.createReactionCollector(filter, { time: 60000 });
                         collector.on('collect', r => {
                             data.noNotifications.push(member.id);
                             message.channel.send("You will no longer be pinged.")
                             fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
                         });
-                        msg.delete(60000);
+                        // msg.delete(60000);
                     })
             } else {
                 message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
