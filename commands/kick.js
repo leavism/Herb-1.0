@@ -35,5 +35,6 @@ exports.help = {
     name: "kick",
     category: "Moderation",
     description: "Kicks someone",
-    usage: "kick @Leavism#2011"
+    usage: "?kick <mention Discord member>",
+    example: ["?kick @Leavism#2011", "?kick @Sam Pole#6969"]
 };

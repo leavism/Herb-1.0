@@ -42,5 +42,6 @@ exports.help = {
     name: "shipbuildsedit",
     category: "Server",
     description: "View or change shipbuilds.",
-    usage: "shipbuildsedit <add/remove/edit> <command> <value>"
+    usage: "?shipbuildsedit <add/remove/edit> <command> <value>",
+    example: ["?sbe add FGS https://coriolis.com/sampleFGS/", "?sbe remove FGS"]
 }

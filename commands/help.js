@@ -5,6 +5,7 @@ command is also filtered by level, so if a user does not have access to
 a command, it is not shown to them. If a command name is given with the
 help command, its extended help is shown.
 */
+const Discord = require("discord.js");
 
 exports.run = (client, message, args, level) => {
   // If no specific command is called, show all filtered commands.
@@ -21,10 +22,7 @@ exports.run = (client, message, args, level) => {
     const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
     let currentCategory = "";
-    let output = `To run a command in Simbad, use \`\`${settings.prefix}<command>\`\`.` +
-    `\nFor example, \`\`${settings.prefix}ping\`\` will run the ping command.` +
-    `\n\nUse \`\`help <command>\`\` to view more information about a specific command.` +
-    `\n\n**__Available commands__**\n`;
+    let output = `**__Available commands__**\n`;
 
     const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
     sorted.forEach( c => {
@@ -34,15 +32,40 @@ exports.run = (client, message, args, level) => {
         currentCategory = cat;
       }
       output += `**${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)}** : ${c.help.description}\n`;
+      if(output.length >= 1900/2){
+        message.channel.send(output);
+        output = "";
+      }
     });
+    // if(output.length >= 1900){
+    //   let splitFirst = output.substring(0,1900/2);
+    //   let splitSecond = output.substring(1900/2 + 1, output.length)
+    //   message.channel.send(splitFirst);
+    //   return message.channel.send(splitSecond)
+    // }
     message.channel.send(output);
   } else {
+    const settings = message.guild ? client.settings.get(message.guild.id) : client.config.defaultSettings;
+
     // Show individual command's help.
     let command = args[0];
     if (client.commands.has(command)) {
       command = client.commands.get(command);
       if (level < client.levelCache[command.conf.permLevel]) return;
-      message.channel.send(`**__${command.help.name}__** \n${command.help.description}\n**Usage:** ${command.help.usage}\n**Aliases:** ${command.conf.aliases.join(", ")}`);
+      if(command.conf.aliases.join(", ").length <= 0) {
+        var aliases = "None"
+      } else {
+         aliases = `${settings.prefix}` + command.conf.aliases.join(`, ${settings.prefix}`)
+      }
+        const embed = new Discord.RichEmbed()
+          .setTitle(`${settings.prefix}`+command.help.name)
+          .setDescription(command.help.description)
+          .addField("Aliases", aliases, true)
+          .addField("Usage", command.help.usage, true)
+          .addField("Example", '``'+ command.help.example.join('``\n``') + '``')
+          .setColor(0x04ff70)
+
+        message.channel.send({embed});
     }
   }
 };
@@ -58,5 +81,6 @@ exports.help = {
   name: "help",
   category: "System",
   description: "Displays all the available commands for your permission level.",
-  usage: "help [command]"
+  usage: "?help [command]",
+  example: ["?help bot", "?help userinfo","?help rank"]
 };

@@ -25,5 +25,6 @@ exports.help = {
   name: "join",
   category: "Server",
   description: "Gives you a specified role. Do not mention the role.",
-  usage: "join role_name"
+  usage: "?join <role name>",
+  example: ["?join Elite","?join Bgs", "?join Pirate"]
 };

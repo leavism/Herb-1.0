@@ -20,5 +20,6 @@ exports.help = {
     name: "shipbuilds",
     category: "Server",
     description: "View shipbuilds.",
-    usage: "shipbuilds"
+    usage: "?shipbuilds",
+    example: ["?t9", "?fdl"]
 }

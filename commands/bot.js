@@ -1,12 +1,21 @@
 const { version } = require("discord.js");
 const moment = require("moment");
+const Discord = require("discord.js")
 require("moment-duration-format");
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
   const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
-  message.channel.send(`__**STATISTICS**__
-• Mem Usage\t\t:: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
-• Uptime\t\t\t\t :: ${duration}`);
+
+  const embed = new Discord.RichEmbed()
+    .setTitle(client.user.tag)
+    .setColor(0x04ff70)
+    .setThumbnail(client.user.avatarURL)
+    .setDescription(`[Usage Guide](https://leavism.gitbooks.io/sophie/) | [Leavism](https://github.com/leavism)`)
+    .addField("🍽️ Serving", `${client.guilds.size} Servers\n${client.users.size} Users`, true)
+    .addField("🕑 Uptime", duration, true)
+    .setFooter("Use ?help for a list of available commands.")
+  
+    message.channel.send({embed});
 };
 
 exports.conf = {
@@ -20,5 +29,6 @@ exports.help = {
   name: "bot",
   category: "Miscelaneous",
   description: "Gives some useful bot statistics",
-  usage: "bot"
+  usage: "?bot",
+  example: ["?bot"]
 };

@@ -58,5 +58,6 @@ exports.help = {
   name: 'userinfo',
   category: 'General',
   description: 'Gets information about a user on the server.',
-  usage: 'userinfo @mention'
+  usage: '?userinfo <mention Discord member',
+  example: ["?userinfo", "?userinfo @Leavism#2011"]
 };

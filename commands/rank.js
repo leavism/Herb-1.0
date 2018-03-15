@@ -4,14 +4,15 @@ const data = require('../data/activity/data.json');
 exports.run = async(client, message, args) => {
     let topTen = "";
     let actMember = getMember(message.member);
-    let aIndex = data.members.indexOf(actMember);
+
 
     data.members.sort(function(a,b) {
         return b.xp - a.xp
     })
     fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
 
-
+    let aIndex = data.members.indexOf(actMember);
+    
     for(var i = 0; i < 10; i++){
         topTen += `${i+1}. [Lvl. ${data.members[i].level}](${data.members[i].xp}) ${data.members[i].name}\n`;
     }
@@ -45,7 +46,8 @@ exports.help = {
   name: "rank",
   category: "Activity",
   description: "Lists the top 10 most active Simbian and your current position",
-  usage: "rank"
+  usage: "?rank",
+  example: ["?rank"]
 };
 
 function getMember(memberObj){

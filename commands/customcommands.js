@@ -20,5 +20,6 @@ exports.help = {
     name: "customcommand",
     category: "Server",
     description: "View custom commands.",
-    usage: "customcommand list"
+    usage: "customcommand",
+    example: ["?hammer", "?spaget"]
 }

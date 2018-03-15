@@ -60,7 +60,8 @@ exports.help = {
     name: "find",
     category: "Elite",
     description: "Looks up engineering materials.",
-    usage: "find Craked Industrial Firmware"
+    usage: "?find <data/material>",
+    example: ["?find cracked industrial firmware","?find modified embedded firmware", "?find core dynamics composites"]
 };
 
 function setName(name){

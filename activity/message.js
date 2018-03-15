@@ -2,40 +2,42 @@ const fs = require("fs");
 const data = require("../data/activity/data.json");
 
 module.exports = (client, message) => {
-    var member = message.member;
-    var actMember = getMember(member);
-
-    if (message.author.bot) return;
-    if (message.content.startsWith("-")) return;
     try {
-        if (!checkMember(member)) {
-            makeMember(member);
-            fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
-        }
+        var member = message.member;
+        var actMember = getMember(member);
+
+        if (message.author.bot) return;
+        if (message.content.startsWith("-")) return;
+            if (!checkMember(member)) {
+                makeMember(member);
+                fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
+            }
     
-        if (client.actTalk.has(message.author.id)) {
-            return console.log("Recently counted")
-        }
+        if (client.actTalk.has(message.author.id)) return
     
         nameProcess(member);
         addXP(actMember, calcXP(message.content));
     
         if (levelUpProcess(actMember)) {
             if (wantsNotif(actMember)) {
-                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: to no longer get pinged for this.`)
+                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: within 60 seconds to no longer get pinged for this.`)
                     .then(msg => {
                         msg.react("🗣");
                         const filter = (reaction, user) => reaction.emoji.name === "🗣" && user.id === member.id;
-                        const collector = msg.createReactionCollector(filter, { time: 10000 });
+                        const collector = msg.createReactionCollector(filter, { time: 60000 });
                         collector.on('collect', r => {
                             data.noNotifications.push(member.id);
                             message.channel.send("You will no longer be pinged.")
                             fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
                         });
-                        msg.delete(10000);
+                        collector.on("end", r => {
+                            msg.clearReactions();
+                            msg.edit(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nUse the ?levelnotif command to toggle pings for level ups.`)
+                        })
+                        // msg.delete(60000);
                     })
             } else {
-                message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${message.member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
+                message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
             }
         }
     
@@ -44,7 +46,7 @@ module.exports = (client, message) => {
         client.actTalk.add(message.author.id);
         setTimeout(() => {
             client.actTalk.delete(message.author.id);
-        }, 120000)
+        }, 10000)
     } catch (err){}
 };
 
@@ -87,7 +89,7 @@ function calcXP(messageContent) {
 }
 
 function addXP(member, amount) {
-    member.xp += amount;
+    member.xp += amount * 2;
     console.log(`Added ${amount} XP`);
 }
 

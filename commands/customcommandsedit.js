@@ -42,5 +42,6 @@ exports.help = {
     name: "customcommandsedit",
     category: "Server",
     description: "View or change custom commands.",
-    usage: "customcommandedit <add/remove/edit> <command> <value>"
+    usage: "?customcommandedit <add/remove/edit> <command> <content>",
+    example: ["?cce add greet Hello there!", "?cce remove greet", "?cce edit greet Heyo, what's up?"]
 }

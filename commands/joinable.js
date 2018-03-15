@@ -50,5 +50,6 @@ exports.help = {
   name: "joinable",
   category: "Server",
   description: "Sets which roles for members to be able to use \`\`join\`\` with. Do not mention the role name.",
-  usage: 'joinable <add/remove> role_name'
+  usage: '?joinable <add/remove> <role name>',
+  example: ["?joinable add Bgs", "?joinable remove Bgs"]
 };

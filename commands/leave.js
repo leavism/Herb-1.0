@@ -29,5 +29,6 @@ exports.help = {
   name: "leave",
   category: "Server",
   description: "Removes a specified role. Do not mention the role.",
-  usage: "join role_name"
+  usage: "?leave <role name>",
+  example: ["?leave Bgs", "?leave Elite", "?leave Bgs"]
 };
