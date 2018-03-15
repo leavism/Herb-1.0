@@ -1,13 +1,30 @@
-exports.run = async(client, message, [origLat, origLong, destLat, destLong]) => {
-    let heading = calculateBearing(origLat, origLong, destLat, destLong)
+exports.run = async(client, message, args) => {
 
-    message.channel.send('**Origin Coords**:\nLat: ' + origLat + ' **|** Long: ' + origLong + '\n' + '**Destination Coords**:\nLat: ' + destLat + ' **|** Long: ' + destLong + '\n\n' + 'Set your compass to ' + heading + ' degrees, CMDR!') 
+    try {
+        let origLat = args[0].replace("_", "-");
+        let origLong = args[1].replace("_","-");
+        let destLat = args[2].replace("_","-");
+        let destLong = args[3].replace("_","-");
+    } catch (error){
+        return message.reply("Please use _ (underscore) in place of the negative sign.\n\nFor example: ``?heading _10 41 _20 290``")
+    }
+
+
+    
+    if(origLat && origLong && destLat && destLong) {
+        let heading = calculateBearing(origLat, origLong, destLat, destLong)
+
+        message.channel.send('**Origin Coords**:\nLat: ' + origLat + ' **|** Long: ' + origLong + '\n' + '**Destination Coords**:\nLat: ' + destLat + ' **|** Long: ' + destLong + '\n\n' + 'Set your compass to ' + heading + ' degrees, CMDR!') 
+    } else {
+        // console.log(origLat)
+        message.reply("Include the origin longitude and latitude, along with the destination longitude and latitude. For example:\n``?heading 20 -41 10 -170``");
+    }
 }
 
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ["heading"],
+    aliases: ["bearing"],
     permLevel: "User"
 };
 
@@ -36,4 +53,18 @@ function calculateBearing(oLat, oLong, dLat, dLong){
 
     initialBearing = Math.round(initialBearing);
     return(initialBearing)
+}
+
+function isNumber(arrayOfNumbers) {
+    arrayOfNumbers.forEach(number => {
+        console.log(number)
+        if(isNaN(number)) return false;
+    })
+    return true;
+}
+
+function hasHyphen(arrayOfNumbers){
+    return arrayOfNumbers.forEach( number => {
+        if (number.indexOf("-") > -1) return true;
+    })
 }
