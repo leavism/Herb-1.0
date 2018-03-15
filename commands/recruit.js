@@ -28,6 +28,6 @@ exports.help = {
     name: "recruit",
     category: "Server",
     description: "Gives someone the Recruit, Elite, and Simbian roles.",
-    usage: "recruit <mention Discord member>",
+    usage: "?recruit <mention Discord member>",
     example: ["?recruit @Leavism#2011"]
 };

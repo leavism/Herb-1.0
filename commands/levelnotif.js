@@ -26,7 +26,7 @@ exports.help = {
   name: "levelnotifications",
   category: "Activity",
   description: "Toggles whether you'll be notified of activity level ups!",
-  usage: "levelnotification",
+  usage: "?levelnotification",
   example: ["?levelnotification", "?levelnotif", "?lvlnotif"]
 };
 

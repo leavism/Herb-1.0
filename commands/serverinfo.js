@@ -54,6 +54,6 @@ exports.help = {
   name: 'serverinfo',
   category: 'General',
   description: 'Gets information about the server.',
-  usage: 'servinfo',
+  usage: '?servinfo',
   example: ["?serverinfo"]
 };

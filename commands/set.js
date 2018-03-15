@@ -62,6 +62,6 @@ exports.help = {
   name: "set",
   category: "System",
   description: "View or change settings for your server.",
-  usage: "set <add/edit/get> <key> <value>",
+  usage: "?set <add/edit/get> <key> <value>",
   example: ["?set add botLogChannel bot-log","?set edit botLogChannel general","?set get botLogChannel"]
 };

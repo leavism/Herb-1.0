@@ -46,7 +46,7 @@ exports.help = {
   name: "rank",
   category: "Activity",
   description: "Lists the top 10 most active Simbian and your current position",
-  usage: "rank",
+  usage: "?rank",
   example: ["?rank"]
 };
 
