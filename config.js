@@ -9,9 +9,10 @@ const config = {
   "support": [],
 
   // Your Bot's Token. Available on https://discordapp.com/developers/applications/me
-  "token": "Mzc2MTk4MDc1NjQwOTcxMjY2.DUZQlA.2b4GVcrogkaQvmcMbR56030unDA",
+  "token":"Mzk5ODAxOTAxNDI5OTQ4NDE2.DTSYDg.fgYR-QDFPbccm1Wsv0QGVeEtz4U",
   // "sophie" : "Mzc2MTk4MDc1NjQwOTcxMjY2.DUZQlA.2b4GVcrogkaQvmcMbR56030unDA",
   // "dev" : "Mzk5ODAxOTAxNDI5OTQ4NDE2.DTSYDg.fgYR-QDFPbccm1Wsv0QGVeEtz4U"
+  // "self": "mfa.RyFP8v5qOlOwMbDXr-zZhUPUglQhT1CrfcqUZLJBG6SXJlRMAwHRAb7kH4KIYBUqHpSiC3VlaWCr9rAP7ajE"
 
   // Default per-server settings. New guilds have these settings.
 
