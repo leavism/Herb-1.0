@@ -1,7 +1,7 @@
 exports.run = async(client, message, [origLat, origLong, destLat, destLong]) => {
     let heading = calculateBearing(origLat, origLong, destLat, destLong)
 
-    message.channel.send('**Origin** Coords: lat: ' + origLat + ' long: ' + origLong + '\n' + '**Destination** Coords: lat: ' + destLat + ' long: ' + destLong + '\n\n' + 'Set your compass to ' + heading + ' degrees, CMDR!') 
+    message.channel.send('**Origin Coords**:\nLat: ' + origLat + ' **|** Long: ' + origLong + '\n' + '**Destination Coords**:\nLat: ' + destLat + ' **|** Long: ' + destLong + '\n\n' + 'Set your compass to ' + heading + ' degrees, CMDR!') 
 }
 
 exports.conf = {
@@ -15,7 +15,7 @@ exports.help = {
     name: "heading",
     category: "Elite",
     description: "Calculate heading on planet surface",
-    usage: "heading <current lat> <current long> <destination lat> <destination long>",
+    usage: "?heading <current lat> <current long> <destination lat> <destination long>",
     example: ["?heading 20 -41 17 260", "?heading 41 -20 173 130"]
 };
 
