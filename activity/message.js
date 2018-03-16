@@ -20,7 +20,7 @@ module.exports = (client, message) => {
     
         if (levelUpProcess(actMember)) {
             if (wantsNotif(actMember)) {
-                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nReact with :speaking_head: within 60 seconds to no longer get pinged for this.`)
+                message.channel.send(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}! Keep up the great convos!\nReact with :speaking_head: within 60 seconds to no longer get pinged for this.`)
                     .then(msg => {
                         msg.react("🗣");
                         const filter = (reaction, user) => reaction.emoji.name === "🗣" && user.id === member.id;
@@ -29,6 +29,7 @@ module.exports = (client, message) => {
                             data.noNotifications.push(member.id);
                             message.channel.send("You will no longer be pinged.")
                             fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
+                            collector.stop()
                         });
                         collector.on("end", r => {
                             msg.clearReactions();
@@ -76,16 +77,16 @@ function getMember(memberObj) {
 
 function calcXP(messageContent) {
     var len = messageContent.length;
-    if (len <= 10) return 1;
-    else if (len <= 15) return 2;
-    else if (len <= 25) return 3;
-    else if (len <= 30) return 4;
-    else if (len <= 35) return 5;
-    else if (len <= 40) return 6;
-    else if (len <= 45) return 7;
-    else if (len <= 50) return 8;
-    else if (len <= 70) return 9;
-    else if (len >= 70) return 10;
+    if (len <= 10) return 2;
+    else if (len <= 15) return 3;
+    else if (len <= 25) return 4;
+    else if (len <= 30) return 5;
+    else if (len <= 35) return 6;
+    else if (len <= 40) return 7;
+    else if (len <= 45) return 8;
+    else if (len <= 50) return 9;
+    else if (len <= 70) return 10;
+    else if (len >= 70) return 11;
 }
 
 function addXP(member, amount) {

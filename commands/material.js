@@ -22,10 +22,10 @@ exports.run = async (client, message, [...args], level) => {
             .setTitle(name)
             .setColor(color)
             .setThumbnail(img)
-            .addField("Where to find:", where)
-            .addField("Material Type:", type)
-            .addField("Rarity:", rarity)
-            .addField("Closest Trader to Nu Tauri:", trader)
+            .addField("Where to find:", where, true)
+            .addField("Material Type:", type, true)
+            .addField("Rarity:", rarity, true)
+            .addField("Closest Trader to Nu Tauri:", trader, true)
 
         if(type == "Raw"){
             let numberObj = findId(name)
@@ -33,7 +33,7 @@ exports.run = async (client, message, [...args], level) => {
                 let number = numberObj.number
                 
                 
-                embed.addField("Eddb.io Prospecting Link:", "https://eddb.io/body?m="+number+"&e=1&p=0&t=0&d=0&r=14759&a=100")
+                embed.addField("Eddb.io Prospecting Link:", "https://eddb.io/body?m="+number+"&e=1&p=0&t=0&d=0&r=14759&a=100", true)
             }
         }
         
@@ -42,26 +42,21 @@ exports.run = async (client, message, [...args], level) => {
     else{
         message.channel.send("No materials found. Maybe you spelled it wrong?")
     }
-
-
-
-    
-    
 }
 
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["find"],
+    aliases: ["mat"],
     permLevel: "User"
 };
 
 exports.help = {
-    name: "find",
+    name: "material",
     category: "Elite",
     description: "Looks up engineering materials.",
-    usage: "?find <data/material>",
-    example: ["?find cracked industrial firmware","?find modified embedded firmware", "?find core dynamics composites"]
+    usage: "?mat <data/material>",
+    example: ["?mat cracked industrial firmware","?material modified embedded firmware", "?mat core dynamics composites"]
 };
 
 function setName(name){

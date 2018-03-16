@@ -48,8 +48,14 @@ module.exports = (client, message) => {
   const sb = require("../data/shipbuilds/sbuilds.json");
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
-  // console.log(ccmd[`${command}`])
-  const botLogC = message.guild.channels.find("name", settings.botLogChannel);
+
+  try {
+    var botLog = message.guild.channels.find("name", settings.botLogChannel)
+  } catch (e){
+    console.e;
+  }
+  const botLogC =  botLog || message.channel;
+
   if (!cmd && !ccmd[`${command}`] && !sb[`${command}`]) {
     return
   } else if (!cmd && ccmd[`${command}`] && !sb[`${command}`]) {
@@ -74,7 +80,8 @@ module.exports = (client, message) => {
             inline: true,
             value: `${message.channel}`
           }
-        ]
+        ],
+        footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
       }})
     } catch (e) {
       return client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
@@ -101,7 +108,8 @@ module.exports = (client, message) => {
             inline: true,
             value: `${message.channel}`
           }
-        ]
+        ],
+        footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
       }})
     } catch (e) {
       return client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
@@ -143,7 +151,8 @@ module.exports = (client, message) => {
               inline: true,
               value: `${message.mentions.member.first()}`
             }
-          ]
+          ],
+          footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
         }})  
       } catch (e){
         client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) attempted command ${cmd.help.name}`);
@@ -179,7 +188,8 @@ module.exports = (client, message) => {
             inline: true,
             value: `${message.mentions.members.first()}`
           }
-        ]
+        ],
+        footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
       }})
     } catch (e) {
         client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
