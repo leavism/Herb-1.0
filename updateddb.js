@@ -15,6 +15,6 @@ function download(url, dest, cb) {
   });
 };
 
-download("https://eddb.io/archive/v5/systems_populated.json", "./data/eddb/systems_populated.json", console.err);
+// download("https://eddb.io/archive/v5/systems_populated.json", "./data/eddb/systems_populated.json", console.err);
 
 download("https://eddb.io/archive/v5/stations.json", "./data/eddb/stations.json", console.err);
