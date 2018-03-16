@@ -37,12 +37,6 @@ exports.run = (client, message, args, level) => {
         output = "";
       }
     });
-    // if(output.length >= 1900){
-    //   let splitFirst = output.substring(0,1900/2);
-    //   let splitSecond = output.substring(1900/2 + 1, output.length)
-    //   message.channel.send(splitFirst);
-    //   return message.channel.send(splitSecond)
-    // }
     message.channel.send(output);
   } else {
     const settings = message.guild ? client.settings.get(message.guild.id) : client.config.defaultSettings;
