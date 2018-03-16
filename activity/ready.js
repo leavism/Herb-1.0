@@ -6,7 +6,7 @@ module.exports = (client) => {
     setInterval(() => {
         checkVoiceChannels(client)
         fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
-    }, 600000);
+    }, 300000);
 
 }
 
