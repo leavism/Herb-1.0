@@ -134,6 +134,16 @@ module.exports = (client) => {
     return this[Math.floor(Math.random() * this.length)]
   };
 
+
+  // <Array>.lowerCaseAll() will make all strings in the element into lowercase strings
+  Array.prototype.lowerCaseAll = function() {
+    var result = [];
+    this.forEach(word => {
+      result.push(word.toLowerCase());
+    })
+    return result;
+  }
+
   // `await client.wait(1000);` to "pause" for 1 second.
   client.wait = require("util").promisify(setTimeout);
 
