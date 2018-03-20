@@ -8,10 +8,10 @@ exports.run = async (client, message, [member], level) => {
   let joinedDDate = member.user.createdAt;
   let joinedSDate = member.joinedAt;
 
-  let joinedDateArray = message.guild.members.map(m => m.joinedAt.toString()).sort(
+  let joinedDateArray = message.guild.members.array().sort(
     function(a, b) {
-      a = new Date(a); // Have to set a, b to date objects again because it's an array of strings
-      b = new Date(b);
+      a = new Date(a.joinedAt.toString()); // Have to set a, b to date objects again because it's an array of strings
+      b = new Date(b.joinedAt.toString());
       return a < b ? -1 : a > b ? 1 : 0;
     }
   )
@@ -24,7 +24,7 @@ exports.run = async (client, message, [member], level) => {
     title: member.user.username + "#" + member.user.discriminator + ` (${member.displayName})`,
     thumbnail: {url: member.user.avatarURL},
     description: `Chilling in ${member.presence.status} status`,
-    footer: { text: 'Member #' + (joinedDateArray.indexOf(joinedSDate.toString()) + 1) + " | User ID: " + member.user.id},
+    footer: { text: 'Member #' + (joinedDateArray.indexOf(member)+1) + " | User ID: " + member.user.id},
     fields: [
       {
         name: 'Joined Discord on',
