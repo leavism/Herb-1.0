@@ -10,16 +10,22 @@ module.exports = (client, message) => {
 
     const modLogC = message.guild.channels.find("name", settings.modLogChannel);
 
-    // Quick message filter (0.02 seconds)
-    if (message.author.bot) return;
 
+    if (message.author.bot) return;
+    // Quick message filter (0.02 seconds)
     if(client.talkRecently.has(message.author.id)) {
-        modLogC.send(`${message.member.displayName} could be spamming in ${message.channel}.\nCase: Sending consecutive messages within 0.02 seconds.`)
+        client.spamTalk.add(message.author.id)
     }
     client.talkRecently.add(message.author.id);
     setTimeout(() => {
         client.talkRecently.delete(message.author.id);
     }, 200);
+    if(client.spamTalk.has(message.author.id)){
+        modLogC.send(`${message.member.displayName} could be spamming in ${message.channel}. **Be aware I don't consider the conversation context.**.\nCase: Sending consecutive messages within 0.02 seconds.`)
+    }
+    setTimeout(() => {
+        client.spamTalk.delete(message.author.id)
+    }, 60000)
 
     //Repeated content filter
     let counter = 0;
@@ -30,7 +36,7 @@ module.exports = (client, message) => {
                     counter++;
                 }
                 if(counter >= 2){
-                    return modLogC.send(`${message.member.displayName}#${message.member.user.discriminator} could be spamming in ${message.channel}.\nCase: Sending repetitive content.`);
+                    return modLogC.send(`${message.member.displayName}#${message.member.user.discriminator} could be spamming in ${message.channel}. **Be aware I don't consider the conversation context.**\nCase: Sending repetitive content.`);
                 }
             })
         })

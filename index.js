@@ -46,12 +46,16 @@ client.commandRecently = new Set();
 // Spam talk cooldown
 client.talkRecently = new Set();
 
+// Spam talk trigger
+client.spamTalk = new Set();
+
 // Ban usage cooldown
 client.banUse = new Set();
 
 // Kick usage cooldown
 client.kickUse = new Set();
 
+// Activity tracker cooldown
 client.actTalk = new Set();
 
 // We're doing real fancy node 8 async/await stuff here, and to do that
