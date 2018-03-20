@@ -13,7 +13,7 @@ module.exports = (client, message) => {
                 fs.writeFileSync("./data/activity/data.json", JSON.stringify(data), (err) => console.log(err));
             }
     
-        if (client.actTalk.has(message.author.id)) return
+        if (client.actTalk.has(message.author.id)) return;
     
         nameProcess(member);
         addXP(actMember, calcXP(message.content));
@@ -35,7 +35,6 @@ module.exports = (client, message) => {
                             msg.clearReactions();
                             msg.edit(`GG ${message.author} you leveled up to ${xpToLvl(actMember.xp)}!\nUse the ?levelnotif command to toggle pings for level ups.`)
                         })
-                        // msg.delete(60000);
                     })
             } else {
                 message.guild.channels.find("name", "bot-chat").send(`WOOP WOOP ${member.displayName} leveled up to ${xpToLvl(actMember.xp)}!`);
