@@ -5,6 +5,7 @@ exports.run = (client, message, [action, value, ...key], level) => {
     if (isNaN(value)) {
       return message.reply("Ensure you specified the amount of previous messages in this channel to delete.\nFor example: ``?cleanup messages 50``")
     }
+    value++;
     message.channel.fetchMessages({limit : value})
       .then(messages => {
         message.channel.bulkDelete(messages)
@@ -55,7 +56,7 @@ exports.run = (client, message, [action, value, ...key], level) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["clean"],
+  aliases: ["clean", "clear"],
   permLevel: "Admin"
 };
 
@@ -64,5 +65,5 @@ exports.help = {
   category: "Moderation",
   description: "Mass delete messages",
   usage: "?cleanup <messages/user/bot> <amount/mention>",
-  example: ["?cleanup messages 10","?cleanup user 20 @Leavism2011","?cleanup user 20 Leavism", "?cleanup bot 100"]
+  example: ["?cleanup messages 10","?clear user 20 @Leavism2011","?clean user 20 Leavism", "?cleanup bot 100"]
 }
