@@ -49,21 +49,16 @@ module.exports = (client, message) => {
   // using this const varName = thing OR otherthign; is a pretty efficient
   // and clean way to grab one of 2 values!
 
-  try {
-    var botLog = message.guild.channels.find("name", settings.botLogChannel)
-  } catch (e){
-    console.e;
-  }
-  const botLogC =  botLog || message.channel;
-
   if (!cmd && !ccmd[`${command}`] && !sb[`${command}`]) {
     return;
   } else if (!cmd && ccmd[`${command}`] && !sb[`${command}`]) {
-
+    message.channel.send(ccmd[command]);
     client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
+    return;
   } else if (!cmd && !ccmd[`${command}`] && sb[`${command}`]){
-
-    client.logger.cmd(`[SB CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran ship build command ${command}`); 
+    message.channel.send(sb[command]);
+    client.logger.cmd(`[SB CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran ship build command ${command}`);
+    return;
   }
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
