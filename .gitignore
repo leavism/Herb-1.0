@@ -1,9 +1,2 @@
-data/settings
-data/activity/data.json
-data/activity/tracker.json
-data/customcommands/ccommands.json
-data/eng/data.json
-data/shipbuilds/sbuilds.json
-data/stats/data.json
 data
 node_modules
