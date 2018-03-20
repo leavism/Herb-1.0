@@ -57,63 +57,13 @@ module.exports = (client, message) => {
   const botLogC =  botLog || message.channel;
 
   if (!cmd && !ccmd[`${command}`] && !sb[`${command}`]) {
-    return
+    return;
   } else if (!cmd && ccmd[`${command}`] && !sb[`${command}`]) {
-    message.channel.send(`${ccmd[`${command}`]}`)
-    try {
-      return botLogC.send({embed : {
-        title: "Custom Command",
-        description: `${message.member} used a custom command at ${message.createdAt}.`,
-        fields: [
-          {
-            name: "Custom Command",
-            inline: true,
-            value: `${command}`
-          },
-          {
-            name: "Invoker",
-            inline: true,
-            value: `${message.author.tag}(${message.author.id})`
-          },
-          {
-            name: "Destination",
-            inline: true,
-            value: `${message.channel}`
-          }
-        ],
-        footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
-      }})
-    } catch (e) {
-      return client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
-    }
+
+    client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
   } else if (!cmd && !ccmd[`${command}`] && sb[`${command}`]){
-    message.channel.send(`${sb[`${command}`]}`)
-    try {
-      return botLogC.send({embed : {
-        title: "Custom Command",
-        description: `${message.member} used a custom command at ${message.createdAt}.`,
-        fields: [
-          {
-            name: "Custom Command",
-            inline: true,
-            value: `${command}`
-          },
-          {
-            name: "Invoker",
-            inline: true,
-            value: `${message.author.tag}(${message.author.id})`
-          },
-          {
-            name: "Destination",
-            inline: true,
-            value: `${message.channel}`
-          }
-        ],
-        footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
-      }})
-    } catch (e) {
-      return client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
-    }
+
+    client.logger.cmd(`[SB CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran ship build command ${command}`); 
   }
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
@@ -126,74 +76,13 @@ module.exports = (client, message) => {
   Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
   // Posts in mod-log if command was attempted but failed due to lack of permissions.
-      try {
-        botLogC.send({embed : {
-          title: "Command Attempt",
-          description: `${message.member} attempted a command but failed due to lack of permissions at ${message.createdAt}.`,
-          fields: [
-            {
-              name: "Command",
-              inline: true,
-              value: `${cmd.help.name}`
-            },
-            {
-              name: "Invoker",
-              inline: true,
-              value: `${message.author.tag}(${message.author.id})`
-            },
-            {
-              name: "Destination",
-              inline: true,
-              value: `${message.channel}`
-            },
-            {
-              name: "Target (if applicable)",
-              inline: true,
-              value: `${message.mentions.member.first()}`
-            }
-          ],
-          footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
-        }})  
-      } catch (e){
-        client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) attempted command ${cmd.help.name}`);
-      }
-      return;
+      return client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) attempted command ${cmd.help.name}`);
     } else {
       return;
     }
   } else {
     // Posts in mod-log if command was successfully used
-      try {
-        botLogC.send({embed : {
-        title: "Command Use",
-        description: `${message.member} successfully used a command at ${message.createdAt}.`,
-        fields: [
-          {
-            name: "Command",
-            inline: true,
-            value: `${cmd.help.name}`
-          },
-          {
-            name: "Invoker",
-            inline: true,
-            value: `${message.author.tag}(${message.author.id})`
-          },
-          {
-            name: "Destination",
-            inline: true,
-            value: `${message.channel}`
-          },
-          {
-            name: "Target (if applicable)",
-            inline: true,
-            value: `${message.mentions.members.first()}`
-          }
-        ],
-        footer: {text: "If you're unexpectedly seeing this, please user '?set add botLogChannel <channel name>' to set a bot-log channel."}
-      }})
-    } catch (e) {
-        client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
-    }
+    client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`);
   }
 
   // To simplify message arguments, the author's level is now put on level (not member so it is supported in DMs)
