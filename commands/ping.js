@@ -2,9 +2,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   const msg = await message.channel.send("Ping?");
   msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
 
-  client.user.setAvatar(`./commands/${args.join(" ")}.png`)
-  .then(user => console.log(`New avatar set!`))
-  .catch(console.error);
 };
 
 exports.conf = {
