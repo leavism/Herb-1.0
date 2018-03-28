@@ -10,29 +10,14 @@ module.exports = (client, message) => {
 
     const modLogC = message.guild.channels.find("name", settings.modLogChannel);
 
-
     if (message.author.bot) return;
-    // Quick message filter (0.02 seconds)
-    if(client.talkRecently.has(message.author.id)) {
-        client.spamTalk.add(message.author.id)
-    }
-    client.talkRecently.add(message.author.id);
-    setTimeout(() => {
-        client.talkRecently.delete(message.author.id);
-    }, 200);
-    if(client.spamTalk.has(message.author.id)){
-        modLogC.send(`${message.member.displayName} could be spamming in ${message.channel}. **Be aware I don't consider the conversation context.**.\nCase: Sending consecutive messages within 0.02 seconds.`)
-    }
-    setTimeout(() => {
-        client.spamTalk.delete(message.author.id)
-    }, 60000)
 
     //Repeated content filter
     let counter = 0;
     message.channel.fetchMessages({limit: 4})
         .then(messages => {
             messages.some(function(msg) {
-                if (msg.content === message.content && msg.id !== message.id && msg.member.id === message.member.id ) {
+                if (msg.content === message.content && msg.id !== message.id && msg.member.id === message.member.id && msg.attachments.array().length === 0) {
                     counter++;
                 }
                 if(counter >= 2){

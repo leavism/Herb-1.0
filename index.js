@@ -11,8 +11,6 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 
-
-
 // This is your client. Some people call it `bot`, some people call it `self`,
 // some might call it `cootchie`. Either way, when you see `client.something`,
 // or `bot.something`, this is what we're refering to. Your client.
@@ -42,12 +40,6 @@ client.settings = new Enmap({provider: new EnmapLevel({name: "settings"})});
 
 // Command cooldown
 client.commandRecently = new Set();
-
-// Spam talk cooldown
-client.talkRecently = new Set();
-
-// Spam talk trigger
-client.spamTalk = new Set();
 
 // Ban usage cooldown
 client.banUse = new Set();
