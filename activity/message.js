@@ -90,7 +90,6 @@ function calcXP(messageContent) {
 
 function addXP(member, amount) {
     member.xp += amount * 2;
-    console.log(`Added ${amount} XP`);
 }
 
 function nameProcess(memberObj) {
