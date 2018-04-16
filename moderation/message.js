@@ -7,9 +7,9 @@ module.exports = (client, message) => {
     const settings = message.guild
     ? client.settings.get(message.guild.id)
     : client.config.defaultSettings;
-    let adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase());
+    let admin = message.guild.roles.find(r => r.name.toLowerCase() === settings.adminRole.toLowerCase());
     
-    if(message.member.roles.has(adminRole.id)) return;
+    if(message.member.roles.has(admin.id)) return;
 
     const modLogC = message.guild.channels.find("name", settings.modLogChannel);
 
