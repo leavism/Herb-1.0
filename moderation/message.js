@@ -3,17 +3,15 @@ const Discord = require("discord.js");
 module.exports = (client, message) => {
 
     if(!message.guild) return;
+    if(message.author.bot) return;
+    if(message.member.roles.has(admin.id)) return;
 
     const settings = message.guild
     ? client.settings.get(message.guild.id)
     : client.config.defaultSettings;
-    let admin = message.guild.roles.find(r => r.name.toLowerCase() === settings.adminRole.toLowerCase());
     
-    if(message.member.roles.has(admin.id)) return;
-
+    let admin = message.guild.roles.find(r => r.name.toLowerCase() === settings.adminRole.toLowerCase());
     const modLogC = message.guild.channels.find("name", settings.modLogChannel);
-
-    if (message.author.bot) return;
 
     //Repeated content filter
     let counter = 0;
