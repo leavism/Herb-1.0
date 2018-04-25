@@ -6,6 +6,7 @@ exports.run = async (client, message, [action, ...value], level) => {
   switch (action) {
     case 'add':
       if (!role) return message.reply('Please specify the name of a role. You don\'t need to mention the role.');
+      if (role !== role.toProperCase()) return message.reply('Please ensure you use title casing when making roles joinable.\nExample: ``"The best role" is not title case. "The Best Role" is title case.`` ')
       if (!message.guild.roles.find('name', role)) return message.reply('I could not find that role. Please ensure that you spelled the role correctly with propper casing. Do not mention the role.');
       if (joinConfig['joinable'].includes(role)) return message.reply('That role can already be used with \`\`join\`\` and \`\`leave\`\`');
 
@@ -32,10 +33,13 @@ exports.run = async (client, message, [action, ...value], level) => {
       break;
     case "list":
       let listIt = joinConfig["joinable"].join("\n");
-      message.channel.send(listIt);
+      message.channel.send(`These are the available roles to \`\`join\`\` or \`\`leave\`\`:\n\`\`\`md\n${listIt}\`\`\``);
       break;
     default:
-      message.channel.send("You aren't using that command correctly. Try ``help joinable`` to find out more details on how to use it.");
+      return message.channel.send("The joinable command is used to enable certain roles for Simbians to be able to join or leave.\n\nSubcommands:"+
+      "\n\tadd\t\tEnable a role Simbians can join or leave. Do not mention the role."+
+      "\n\tremove\t Disable a role Simbians can join or leave. Do not mention the role."+
+      "\n\tlist\t   Lists all the roles that Simbians are able to join or leave", {code: "md"})
   }
 };
 

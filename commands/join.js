@@ -3,6 +3,7 @@ const joinConfig = require('../data/joinable/joinable.json');
 
 exports.run = async(client, message, args) => {
   let role = args.join(" ");
+  role = role.toProperCase();
 
   if (joinConfig['joinable'].includes(role)){
     let giveRole = message.guild.roles.find('name',role);
@@ -10,7 +11,7 @@ exports.run = async(client, message, args) => {
     await message.member.addRole(giveRole).catch(err => { msg = `I could not edit your roles because ${err}`})
     message.channel.send(msg)
   } else {
-    message.channel.send(`Either the ${role} role was spelled incorrectly or you cannot give yourself this role. Please contact an Admin if this is wrong.`)
+    message.channel.send(`Either the role does not exist or you cannot give yourself that role. These are the available roles. `)
   }
 }
 
