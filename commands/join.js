@@ -11,7 +11,8 @@ exports.run = async(client, message, args) => {
     await message.member.addRole(giveRole).catch(err => { msg = `I could not edit your roles because ${err}`})
     message.channel.send(msg)
   } else {
-    message.channel.send(`Either the role does not exist or you cannot give yourself that role. These are the available roles. `)
+    let listIt = joinConfig["joinable"].join("\n");
+    message.channel.send(`Either the role does not exist or you cannot give yourself that role. These are the available roles:\n\`\`\`${listIt}\`\`\``)
   }
 }
 
