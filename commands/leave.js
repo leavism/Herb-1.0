@@ -2,11 +2,8 @@ const fs = require('fs');
 const joinConfig = require('../data/joinable/joinable.json');
 
 exports.run = async (client, message, args) => {
-  let role = "";
-  for(var i = 0; i < args.length; i++){
-    if (i == args.length-1) role += args[i]
-    else role += args[i] + " "
-  }
+  let role = args.join(" ");
+  role = role.toProperCase();
 
   if (joinConfig['joinable'].includes(role)){
     let giveRole = message.guild.roles.find('name',role);
