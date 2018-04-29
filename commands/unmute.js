@@ -13,7 +13,8 @@ exports.run = async (client, message, level) => {
       addRoles.push(message.guild.roles.find("name", role));
     })
   
-    target.addRoles(addRoles);
+    await target.removeRole(message.guild.roles.find("name","Mute"));
+    await target.addRoles(addRoles);
 
     delete muted[target.id];
     fs.writeFileSync('./data/mute/muted.json', JSON.stringify(muted), (err) => console.log(err));

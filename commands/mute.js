@@ -14,8 +14,8 @@ exports.run = async (client, message, level) => {
   let rolesArray = target.roles.array();
   target.removeRoles(rolesArray);
 
-  if(message.guild.roles.find("name","Mute")){
-    target.addRole(message.guild.roles.find("name","Mute").catch((err) => console.log(err)))
+  if(message.guild.roles.find("name","Mute") !== undefined){
+    await target.addRole(message.guild.roles.find("name","Mute"))
     message.channel.send(`${target} has been muted.`)
   } else {
     message.reply(`there isn't a Mute role but I've removed ${target}'s roles.`)
