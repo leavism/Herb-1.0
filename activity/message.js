@@ -2,6 +2,7 @@ const fs = require("fs");
 const data = require("../data/activity/data.json");
 
 module.exports = (client, message) => {
+    if(!message.guild) return;
     try {
         var member = message.member;
         var actMember = getMember(member);
