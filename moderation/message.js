@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = (client, message) => {
 
     if(!message.guild) return;
-    if(!message.message.member) return;
+    if(!message.member) return;
     if(message.author.bot) return;
 
     const settings = message.guild
