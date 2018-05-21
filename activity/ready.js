@@ -28,6 +28,7 @@ function getMember(memberObj){
 }
 
 function addXP(member, amount){
+    if(!member) return;
     member.xp += amount;
 }
 
