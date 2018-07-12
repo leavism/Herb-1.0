@@ -29,7 +29,7 @@ const config = {
     "systemNotice": "true", // This gives a notice when a user tries to run a command that they do not have permission to use.
     "welcomeChannel": "welcome",
     "welcomeMessage": "{{user}}, Welcome to Simbad!\n\nWe are an Elite: Dangerous Community that welcomes all players regardless of in-game superpower, PP alignment, or gameplay style.\n\nIf you're looking for a casual community of players aimed at making the game more enjoyable, you've come to the right place!If you're interested, please contact any @Admin, @Regular, or @Welcomer. Also feel free to stay here and chill as a guest.\n\nPlease be aware that until you're given Discord roles, the only content you'll see is in this channel. If you would like to findout more about us, check out our website <https://simbadgaming.com/>",
-    "welcomeEnabled": "true",
+    "welcomeEnabled": "false",
     "goodbyeChannel": "welcome",
     "goodbyeMessage": "{{user}} has left. Hope they had a nice stay. **RIP**",
     "goodbyeEnabled": "true",
