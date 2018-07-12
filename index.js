@@ -47,8 +47,8 @@ client.banUse = new Set();
 // Kick usage cooldown
 client.kickUse = new Set();
 
-// Activity tracker cooldown
-client.actTalk = new Set();
+// // Activity tracker cooldown
+// client.actTalk = new Set();
 
 // We're doing real fancy node 8 async/await stuff here, and to do that
 // we need to wrap stuff in an anonymous function. It's annoying but it works.
@@ -94,14 +94,14 @@ const init = async () => {
     delete require.cache[require.resolve(`./moderation/${file}`)];
   });
 
-  const actFiles = await readdir("./activity");
-  client.logger.log("Loaded activity tracker");
-  actFiles.forEach(file => {
-    const actName = file.split(".")[0];
-    const actReq = require(`./activity/${file}`);
-    client.on(actName, actReq.bind(null, client));
-    delete require.cache[require.resolve(`./activity/${file}`)];
-  });
+  // const actFiles = await readdir("./activity");
+  // client.logger.log("Loaded activity tracker");
+  // actFiles.forEach(file => {
+  //   const actName = file.split(".")[0];
+  //   const actReq = require(`./activity/${file}`);
+  //   client.on(actName, actReq.bind(null, client));
+  //   delete require.cache[require.resolve(`./activity/${file}`)];
+  // });
 
 
   client.on("error", (e) => console.error(e));
