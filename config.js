@@ -32,7 +32,7 @@ const config = {
     "welcomeEnabled": "false",
     "goodbyeChannel": "welcome",
     "goodbyeMessage": "{{user}} has left. Hope they had a nice stay. **RIP**",
-    "goodbyeEnabled": "true",
+    "goodbyeEnabled": "false",
     "botLogChannel" : "bot-log"
   },
 
