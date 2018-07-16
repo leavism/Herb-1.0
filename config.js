@@ -3,7 +3,7 @@ const config = {
   "ownerID": "130604133978865664",
 
   // Bot Admins, level 9 by default. Array of user ID strings.
-  "admins": [],
+  "admins": ["454845440408420353"],
 
   // Bot Support, level 8 by default. Array of user ID strings
   "support": [],
@@ -20,7 +20,7 @@ const config = {
   // VIA COMMANDS IN THE GUILD.
 
   "defaultSettings" : {
-    "prefix": "-",
+    "prefix": "?",
     "modLogChannel": "mod-log",
     "memberRole": "Simbian",
     "regRole": "Regular",
