@@ -17,8 +17,8 @@ exports.run = async (client, message, args, level) => {
         sysArray.push(line)
       })
 
-      if(sysArray.length != 0){
-        console.log("Hello")
+      if(sysArray){
+        console.log("Here")
       }
 
       let x1 = sysArray[0].x,
