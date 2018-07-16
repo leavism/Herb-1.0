@@ -16,6 +16,11 @@ exports.run = async (client, message, args, level) => {
       i.forEach(function(line) {
         sysArray.push(line)
       })
+
+      if(sysArray.length != 0){
+        console.log("Hello")
+      }
+
       let x1 = sysArray[0].x,
           y1 = sysArray[0].y,
           z1 = sysArray[0].z;
