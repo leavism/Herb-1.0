@@ -71,7 +71,10 @@ function fetch(system) {
       request(uri, function(err, response, body) {
         if (err) return reject(err)
         if (response.statusCode != 200) return reject(new Error(body))
-        if (body.length <= 2 ) return reject(new Error('Inputs were incorrect or it is not in the EDSM database.'))
+        if (body.length <= 2 ) {
+          message.channel.send(`Inputs were incorrect or it is not in the EDSM database.`);
+          return reject(new Error('Inputs were incorrect or it is not in the EDSM database.'))
+        }
         try {
           resolve(JSON.parse(body))
         }
