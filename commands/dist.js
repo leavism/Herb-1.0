@@ -17,10 +17,6 @@ exports.run = async (client, message, args, level) => {
         sysArray.push(line)
       })
 
-      if(sysArray){
-        console.log("Here")
-      }
-
       let x1 = sysArray[0].x,
           y1 = sysArray[0].y,
           z1 = sysArray[0].z;
@@ -75,7 +71,7 @@ function fetch(system) {
       request(uri, function(err, response, body) {
         if (err) return reject(err)
         if (response.statusCode != 200) return reject(new Error(body))
-        // if (body.length <= 2 ) return reject(new Error('Inputs were incorrect or it is not in the EDSM database.'))
+        if (body.length <= 2 ) return reject(new Error('Inputs were incorrect or it is not in the EDSM database.'))
         try {
           resolve(JSON.parse(body))
         }
