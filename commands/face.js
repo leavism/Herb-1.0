@@ -1,7 +1,7 @@
 
 
 exports.run = async(client, message, args) => {
-    message.channel.send('༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ');
+    message.channel.send('༼ つ ◕-◕ ༽つ༼ つ ◕-◕ ༽つ༼ つ ◕-◕ ༽つ');
 }
 
 exports.conf = {
