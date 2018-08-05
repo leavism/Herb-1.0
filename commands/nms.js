@@ -15,6 +15,7 @@ exports.run = async(client, message, [member]) => {
     `the Recruit role and celebrate with dank memes. Everyone, say hello!`
 
     await member.addRoles([recruit, nms, simbian]).catch(err => { msg = `${member} already has those roles. That's right, no more eternal recruits!`})
+    message.channel.send("Great work! Our new recruit has been welcomed in #general")
     general.send(msg);
 }
 
