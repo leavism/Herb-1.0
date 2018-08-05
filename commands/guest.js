@@ -12,7 +12,7 @@ exports.run = async(client, message, [member]) => {
     `everyone. You can always request to become a full member at any time by contacting any of our leadership team! Everyone, say hello!`
 
     await member.addRoles([guest]).catch(err => { msg = `${member} already has those roles.`})
-    message.channel.send("Great work! Our new guest has been welcomed in #general")
+    message.channel.send("Great work! Our new guest has been welcomed in <#125498072661753856>")
     general.send(msg);
 }
 
