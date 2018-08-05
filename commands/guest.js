@@ -6,12 +6,13 @@ exports.run = async(client, message, [member]) => {
     }
 
     let guest = message.guild.roles.find('name', 'Guest');
+    const general = message.guild.channels.find("name", "general");
 
     var msg = `You're now a guest of Simbad, ${member}! This grants access to some of our text and voice channels, so feel free to hang out and get to know `+
     `everyone. You can always request to become a full member at any time by contacting any of our leadership team! Welcome!`
 
     await member.addRoles([guest]).catch(err => { msg = `${member} already has those roles.`})
-    message.channel.send(msg);
+    general.send(msg);
 }
 
 exports.conf = {
