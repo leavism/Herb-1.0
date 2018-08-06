@@ -4,8 +4,6 @@ exports.run = async(client, message, [member]) => {
     } else {
         member = message.mentions.members.first();
     }
-
-    general.send(msg);
     var msg = `Hello there ${member}! Welcome to Simbad! This is the welcome channel. I am Bevers, your guide today. How may I be of assistance? https://giphy.com/gifs/mrw-top-escalator-Nx0rz3jtxtEre`
     message.channel.send(msg)
 }
