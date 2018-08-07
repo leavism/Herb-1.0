@@ -1,6 +1,6 @@
 exports.run = async(client, message, [member]) => {
     if(message.mentions.users.size < 1){
-        return message.reply("Please specify who to recruit by mentioning them.");
+        return message.reply("Who am I welcoming? Please mention them.");
     } else {
         member = message.mentions.members.first();
     }
