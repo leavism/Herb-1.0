@@ -11,9 +11,9 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "f",
+  name: "j",
   category: "Server",
   description: "Try it and find out",
-  usage: "?f",
-  example: ["?f"]
+  usage: "?j",
+  example: ["?j"]
 };
