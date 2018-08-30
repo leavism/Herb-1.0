@@ -1,6 +1,6 @@
 exports.run = async (client, message, args) => {
   let user = Guild.members.random();
-  message.channel.send("user");
+  message.channel.send(`kicking ${user}`);
 };
 
 exports.conf = {
