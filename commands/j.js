@@ -1,19 +1,21 @@
 exports.run = async (client, message, args) => {
-  let user = message.guild.members.random();
-  message.channel.send(`kicking ${user}`);
+  let currentUser = client.user.id;
+  console.log(currentUser);
+  // let user = message.guild.members.random();
+  // message.channel.send(`kicking ${user}`);
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
-  permLevel: "Regular"
+  permLevel: "Simbian"
 };
 
 exports.help = {
-  name: "j",
+  name: "f",
   category: "Server",
   description: "Try it and find out",
-  usage: "?j",
-  example: ["?j"]
+  usage: "?f",
+  example: ["?f"]
 };
