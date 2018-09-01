@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     message.channel.send("I have kicked Anwi for using his command")
   }
   else {
-    message.channel.send(`Anwidoxo#0476 has left. Hope he had a nice stay. RIP :rip:`)
+    message.channel.send('Anwidoxo#0476 has left. Hope he had a nice stay. RIP :rip:')
   }
 };
 
