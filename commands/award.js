@@ -32,6 +32,6 @@ exports.help = {
     name: "award",
     category: "Shop",
     description: "Shop command to award users with Simbits TM",
-    usage: "?award <@user> <amount>",
-    example: ["?award @Bevers222#2642 10"]
+    usage: "?award <amount> <@user>",
+    example: ["?award 10 @Bevers222#2642"]
 }

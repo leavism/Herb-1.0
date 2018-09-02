@@ -41,20 +41,6 @@ module.exports = {
         )
         return fs.writeFileSync("./data/shop/data.json", JSON.stringify(data), (err) => console.log(err));
     },
-
-    /*
-    Gets the Simbit account
-     
-    @param memberObj : Discord Member object
-     
-    @return : Simbit shop account
-    */
-    getShopUser: function (memberObj) {
-        return data.users.find(user => {
-            return user.id === memberObj.user.id.toString();
-        })
-    },
-
     /*
     Awards a Shop User an amount of Simbits. There's no limit to how many Simbits
      
@@ -91,4 +77,17 @@ module.exports = {
 
         return `${memberObj} has had ${amount} Simbits deducted from them and added back to the budget.`
     }
+}
+
+/*
+   Gets the Simbit account
+    
+   @param memberObj : Discord Member object
+    
+   @return : Simbit shop account
+   */
+function getShopUser(memberObj) {
+    return data.users.find(user => {
+        return user.id === memberObj.user.id.toString();
+    })
 }
