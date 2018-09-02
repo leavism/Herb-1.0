@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     let target = message.mentions.members.first()
 
     if (!shopCommon.isWholePositiveNumber(amount) || target === undefined) {
-        return message.reply("Sorry, Either the target is not a valid user, or I cannot award an amount of simbits that is either negative or not a whole number! Remember `?award 10 @Bevers222#2642")
+        return message.reply("Sorry, Either the target is not a valid user, or I cannot award an amount of simbits that is either negative or not a whole number! Remember `?award 10 @Bevers222#2642`")
     }
 
     if (!shopCommon.checkAcc(target)) {
