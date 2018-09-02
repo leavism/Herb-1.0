@@ -1,4 +1,8 @@
 const shopCommon = require('./commonShop.js')
+const data = require("../data/shop/data.json");
+const cTable = require('console.table');
+const fs = require("fs");
+const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
     let amount = args[0]
