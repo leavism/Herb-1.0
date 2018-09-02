@@ -5,9 +5,9 @@ const fs = require("fs");
 const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
-    let given;
+    let given = 0
     data.users.forEach(user => {
-        given += user.balance;
+        given += user.balance
     })
 
     message.channel.send(`The budget is at ${data.budget} Simbits.\nThe total Simbits given to users is at ${given} Simbits.`)
