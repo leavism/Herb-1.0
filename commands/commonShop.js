@@ -52,10 +52,11 @@ module.exports = {
     award: function (memberObj, amount) {
         let shopUser = getShopUser(memberObj);
 
-        shopUser.balance += amount;
-        data.budget -= amount;
+        console.log(amount)
+        // shopUser.balance += amount;
+        // data.budget -= amount;
 
-        fs.writeFileSync("./data/shop/data.json", JSON.stringify(data), (err) => console.log(err));
+        // fs.writeFileSync("./data/shop/data.json", JSON.stringify(data), (err) => console.log(err));
 
         return `:confetti_ball:  ${memberObj} has earned ${amount} Simbits! :confetti_ball: `
     },
