@@ -5,17 +5,17 @@ const fs = require("fs");
 const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
-    let amount = args[0]
+    let amount = Number(args[0])
     let target = message.mentions.members.first()
 
     console.log(amount)
 
-    if (!shopCommon.isWholePositiveNumber(amount)) {
-        return message.reply("Sorry, I cannot award an amount of simbits that is either negative or not a whole number!")
-    }
-
     if (target === undefined) {
         return message.reply("Sorry, I cannot award simbits to that person. Please try again with a valid Simbian!")
+    }
+
+    if (!shopCommon.isWholePositiveNumber(amount)) {
+        return message.reply("Sorry, I cannot award an amount of simbits that is either negative or not a whole number!")
     }
 
     if (!shopCommon.checkAcc(target)) {
