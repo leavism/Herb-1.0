@@ -8,8 +8,6 @@ exports.run = async (client, message, args) => {
     let amount = Number(args[0])
     let target = message.mentions.members.first()
 
-    console.log(amount)
-
     if (target === undefined) {
         return message.reply("Sorry, I cannot award simbits to that person. Please try again with a valid Simbian!")
     }
