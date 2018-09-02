@@ -1,22 +1,22 @@
 const shopCommon = require('./commonShop.js')
 
 exports.run = async (client, message, args) => {
-    console.log(args[0])
-    console.log(message.mentions.members.first())
-    // if (!isWholePositiveNumber(values[0])) {
-    //     return message.reply("Ensure you included the amount of Simbits to award first and then mention the person you're trying to award. The amount of Simbits must be a positive whole number.\nFor example: ``setshop award 10 @Leavism#2011``");
-    // } else { var awardAmount = Number(values.shift()); }
+    let amount = args[0]
+    let target = message.members.members.first()
 
-    // if (message.mentions.members.first() === undefined) {
-    //     return message.reply("Ensure you mentioned the person you're trying to award.\nFor example: ``setshop award 10 @Leavism#2011``");
-    // } else { var awardTarget = message.mentions.members.first(); }
+    if (!shopCommon.isWholePositiveNumber(amount)) {
+        return message.reply("Sorry, I cannot award an amount of simbits that is either negative or not a whole number!")
+    }
 
-    // if(!checkAcc(awardTarget)) mkAcc(awardTarget);
+    if (target === undefined) {
+        return message.reply("Sorry, I cannot award simbits to that person. Please try again with a valid Simbian!")
+    }
 
-    // await message.channel.send(award(awardTarget, awardAmount));
-
-    // message.guild.channels.find('name', data["shop-channel"]).send(`${message.member} awarded ${awardTarget} with ${awardAmount} Simbits.\nThe budget is now ${data.budget} Simbits.`)
-    // break;
+    if (!shopCommon.checkAcc(target)) {
+        shopCommon.mkAcc(target)
+    }
+    await message.channel.send(shopCommon.award(target, amount))
+    message.guild.channels.find('name', data["shop-channel"]).send(`${message.member} awarded ${target} with ${amount} Simbits.\nThe budget is now ${data.budget} Simbits.`)
 }
 
 exports.conf = {
