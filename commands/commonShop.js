@@ -53,8 +53,11 @@ module.exports = {
         let shopUser = getShopUser(memberObj);
 
         console.log(amount)
-        // shopUser.balance += amount;
-        // data.budget -= amount;
+        shopUser.balance += amount;
+        data.budget -= amount;
+
+        console.log(shopUser.balance)
+        console.log(data.budget)
 
         // fs.writeFileSync("./data/shop/data.json", JSON.stringify(data), (err) => console.log(err));
 
