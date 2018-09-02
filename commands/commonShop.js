@@ -69,7 +69,7 @@ module.exports = {
 
         fs.writeFileSync("./data/shop/data.json", JSON.stringify(data), (err) => console.log(err));
 
-        return `:confetti_ball:  ${memberObj} has earned ${amount} Simbits! :confetti_ball: `
+        return `:confetti_ball:  ${memberObj} has earned ${amount} Simbits! Your new balance is: ${shopUser.balance}:confetti_ball: `
     },
     /*
     Deducts a Shop User an amount of Simbits. Can't deduct if their balance isn't enough to deduct from
