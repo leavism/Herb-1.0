@@ -22,6 +22,18 @@ module.exports = {
         }
         return false;
     },
+    /*
+   Gets the Simbit account
+    
+   @param memberObj : Discord Member object
+    
+   @return : Simbit shop account
+   */
+    getShopUser: function (memberObj) {
+        return data.users.find(user => {
+            return user.id === memberObj.user.id.toString();
+        })
+    },
 
     /*
     Makes a Simbit shop account for a Discord member
