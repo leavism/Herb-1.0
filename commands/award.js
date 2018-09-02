@@ -2,7 +2,7 @@ const shopCommon = require('./commonShop.js')
 
 exports.run = async (client, message, args) => {
     let amount = args[0]
-    let target = message.members.members.first()
+    let target = message.mentions.members.first()
 
     if (!shopCommon.isWholePositiveNumber(amount)) {
         return message.reply("Sorry, I cannot award an amount of simbits that is either negative or not a whole number!")
