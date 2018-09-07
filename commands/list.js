@@ -1,5 +1,5 @@
 exports.run = async (client, message, args) => {
-    message.channel.send("BEVERS' LIST:\n ```\n1. JayDonks\n 2. Jrose\n 3. Moist Accident\n 4. Havoc\n 5. SpInFuZoR\n 6. PlsNoBuli```");
+    message.channel.send("BEVERS' LIST: ```\n1. JayDonks\n2. Jrose\n3. Moist Accident\n4. Havoc\n5. SpInFuZoR\n6. PlsNoBuli```");
 }
 
 exports.conf = {
