@@ -11,6 +11,9 @@ exports.run = async (client, message, args) => {
     if (!shopCommon.isWholePositiveNumber(amount) || target === undefined) {
         return message.reply("Sorry, Either the target is not a valid user, or I cannot award an amount of simbits that is either negative or not a whole number! Remember `?award 10 @Bevers222#2642`")
     }
+    if (!shopCommon.checkAcc(target)) {
+        mkAcc(target)
+    }
 
     await message.channel.send(shopCommon.award(target, amount))
     message.guild.channels.find('name', data["shop-channel"]).send(`${message.member} awarded ${target} with ${amount} Simbits.\nThe budget is now ${data.budget} Simbits.`)
