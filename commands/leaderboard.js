@@ -88,7 +88,7 @@ exports.run = async (client, message, [action, ...values]) => {
                     return message.reply("Sorry, there was a weird error. Ask bevers about it.")
                 }
                 let times = JSON.parse(data);
-                let tList = "< Forza Leaderboard >\n**WEEK 1** / Elmsdon on Sea Sprint / Honda NSX - A class"
+                let tList = "< Forza Leaderboard **WEEK 1** / Elmsdon on Sea Sprint / Honda NSX - A class >\n"
                 if (times.length <= 0) {
                     return message.reply("Sorry, no times available yet! Add your own!")
                 }
