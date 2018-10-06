@@ -36,7 +36,6 @@ exports.run = async (client, message, [action, ...values]) => {
                             seconds: sTime,
                             flag
                         }
-                        console.log(record)
 
                         fs.readFile('./data/forza.json', (err, data) => {
                             if (err) {
