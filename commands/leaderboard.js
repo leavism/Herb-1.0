@@ -82,7 +82,7 @@ exports.run = async (client, message, [action, ...values]) => {
             message.channel.send(`?leaderboard - displays the leaderboard **Times are reset every week**\n?leaderboard add <time> <!> - Adds/updates your time on the leaderboard. If it is a dirty lap, add a !\n\n ex. ?leaderboard add 01:24.455\n\nSome rules to follow:\n1.You must have your time in the format of mm:ss.xxx. ex: 01:25.123.\n2. You must add a space and a ! after your time to mark it as a dirty lap.\n3. You must attach a screenshot with your time to add it to the list.\n4.This is built on the honor system. The only way for us to know your real time is the screenshot. Do not try to cheat the leaderboard.\n\n**Bevers is always watching and will ban you from the command.**`)
 
             break
-        default:
+        case 'leaderboard':
             fs.readFile('./data/forza.json', (err, data) => {
                 if (err) {
                     console.log(err)
@@ -106,6 +106,12 @@ exports.run = async (client, message, [action, ...values]) => {
                 message.channel.send(tList, { code: "md" })
             });
             break
+        case 'info':
+            message.channel.send('**= How to play Forza Horizon 4 =**\n- 1st month subscription code (only works once per account) - https://www.cdkeys.com/xbox-live/memberships/1-month-xbox-game-pass-xbox-one-360\n- From the official website (there is a 15 day trial available too) - https://www.microsoft.com/en-us/p/xbox-game-pass/cfq7ttc0k6l8/000B?rtc=1\n- Forza Horizon 4 demo https://www.microsoft.com/en-us/p/forza-horizon-4-demo/9p8cp1l72jxs#activetab=pivot:overviewtab\n```Minimum Requirements:\n\nOS: Windows 10 version 15063.0 or higher\nDirectX: DirectX 12 API\nMemory: 8GB\nVRAM: 2GB\nProcessor: Intel i3-4170 @ 3.7Ghz or Intel i5 750 @ 2.67Ghz\nGraphics card: Nvidia GTX 650 Ti or Nvidia GT 740 or AMD R7 250x\n\nRecommended:\nOS: Windows 10 version 15063.0 or higher\nDirectX: DirectX 12 API\nMemory: 12GB\nVRAM: 4GB\nProcessor: Intel i7-3820 @ 3.6Ghz\nGraphics: Nvidia GTX 970 or NVidia GTX 1060 3GB or AMD R9 290x or AMD RX 470```')
+            break
+        default:
+            message.channel.send(`?forza leaderboard\n?forza add\n?forza info\n?forza help`)
+            break
     }
 }
 
@@ -123,9 +129,9 @@ exports.conf = {
 };
 
 exports.help = {
-    name: "leaderboard",
+    name: "forza",
     category: "Server",
-    description: "Forza leaderboard list",
-    usage: "?leaderboard",
-    example: ["?leaderboard <add> <time> <!>"]
+    description: "Forza commands",
+    usage: "?forza",
+    example: ["?forza <add> <time> <!>"]
 };
