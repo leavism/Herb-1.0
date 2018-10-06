@@ -7,6 +7,7 @@ exports.run = async (client, message, [action, ...values]) => {
             if (message.member.user.id == 454845440408420353) {
                 let empty = []
                 fs.writeFileSync('./data/forza.json', JSON.stringify(empty))
+                return message.reply("Leaderboard reset! Have a fast week ;)")
             }
             else {
                 return message.reply("Only <@454845440408420353> can do that. Sorry!")
