@@ -74,7 +74,7 @@ exports.run = async (client, message, [action, ...values]) => {
                 }
             }
             else {
-                return message.reply("You neeed to attach a screenshot for proof!")
+                return message.reply("You need to attach a screenshot for proof!")
             }
 
             break
