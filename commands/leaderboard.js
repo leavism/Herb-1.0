@@ -81,9 +81,6 @@ exports.run = async (client, message, [action, ...values]) => {
             message.channel.send(`?leaderboard - displays the leaderboard **Times are reset every week**\n?leaderboard add <time> <!> - Adds/updates your time on the leaderboard. If it is a dirty lap, add a !\n\n ex. ?leaderboard add 01:24.455\n\nSome rules to follow:\n1.You must have your time in the format of mm:ss.xxx. ex: 01:25.123.\n2. You must add a space and a ! after your time to mark it as a dirty lap.\n3. You must attach a screenshot with your time to add it to the list.\n4.This is built on the honor system. The only way for us to know your real time is the screenshot. Do not try to cheat the leaderboard.\n\n**Bevers is always watching and will ban you from the command.**`)
 
             break
-        case 'info':
-            message.channel.send(`**WEEK 1**\nElmsdon on Sea Sprint\nHonda NSX - A class`)
-            break
         default:
             fs.readFile('./data/forza.json', (err, data) => {
                 if (err) {
@@ -91,7 +88,7 @@ exports.run = async (client, message, [action, ...values]) => {
                     return message.reply("Sorry, there was a weird error. Ask bevers about it.")
                 }
                 let times = JSON.parse(data);
-                let tList = "< Forza Leaderboard >\n"
+                let tList = "< Forza Leaderboard >\n**WEEK 1** / Elmsdon on Sea Sprint / Honda NSX - A class"
                 if (times.length <= 0) {
                     return message.reply("Sorry, no times available yet! Add your own!")
                 }
