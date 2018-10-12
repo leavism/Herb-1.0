@@ -28,7 +28,7 @@ exports.run = async (client, message, [action, ...values]) => {
                         let mm = Number(time.split(':')[0])
                         let sString = time.split(':')[1]
                         let s = Number(sString.split('.')[0])
-                        let ms = Number(time.split('.')[1])
+                        let ms = sString.split('.')[1]
                         let sTime = (mm * 60) + s + "." + ms
 
                         let record = {
