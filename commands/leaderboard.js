@@ -89,7 +89,7 @@ exports.run = async (client, message, [action, ...values]) => {
                     return message.reply("Sorry, there was a weird error. Ask bevers about it.")
                 }
                 let times = JSON.parse(data);
-                let tList = "< Simbad Weekly Leaderboard >\n# WEEK 2\n# Otleydale Dash\n# Mclaren 570S - S2 class \n"
+                let tList = "< Simbad Weekly Leaderboard >\n# WEEK 3\n# El Camino Beach Blitz\n# 1970 Chevy El Camino Super Sport - A Class\n"
                 if (times.length <= 0) {
                     return message.reply("Sorry, no times available yet! Add your own!")
                 }
