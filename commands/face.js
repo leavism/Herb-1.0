@@ -3,7 +3,7 @@
 exports.run = async (client, message, args) => {
   message.channel.send('༼ つ ◕_◕ ༽つ');
 
-  guild.channels.forEach((channel) => {
+  client.channels.forEach((channel) => {
     console.log(` -- ${channel.name} (${channel.type}) - ${channel.id}`)
   })
 }
