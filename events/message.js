@@ -18,7 +18,7 @@ module.exports = (client, message) => {
   message.settings = settings;
 
   if (message.channel.id == '144228126983979008') {
-    fs.writeFileSync("l.txt", `${message.timestamp} - ${message.author}: ${message.content}`, (err) => console.log(err));
+    fs.writeFileSync("../data/l.txt", `${message.timestamp} - ${message.author}: ${message.content}`, (err) => console.log(err));
   }
 
   // Also good practice to ignore any message that does not start with our prefix,
