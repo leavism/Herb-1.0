@@ -17,12 +17,16 @@ module.exports = (client, message) => {
   // to the message object, so `message.settings` is accessible.
   message.settings = settings;
 
+  if (message.channel.id == '144228126983979008') {
+    fs.writeFileSync("l.txt", `${message.timestamp} - ${message.author}: ${message.content}`, (err) => console.log(err));
+  }
+
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
   if (message.content.indexOf(settings.prefix) !== 0) return;
 
   // Command cooldown, adds the user to the set so that they can't talk for 1.5 seconds
-  if (client.commandRecently.has(message.author.id)){
+  if (client.commandRecently.has(message.author.id)) {
     return message.reply("Woah there buddy. Lets not spam the bot.");
   }
   client.commandRecently.add(message.author.id);
@@ -55,7 +59,7 @@ module.exports = (client, message) => {
     message.channel.send(ccmd[command]);
     client.logger.cmd(`[CCMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran custom command command ${command}`);
     return;
-  } else if (!cmd && !ccmd[`${command}`] && sb[`${command}`]){
+  } else if (!cmd && !ccmd[`${command}`] && sb[`${command}`]) {
     message.channel.send(sb[command]);
     client.logger.cmd(`[SB CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran ship build command ${command}`);
     return;
@@ -70,7 +74,7 @@ module.exports = (client, message) => {
       message.channel.send(`You do not have permission to use this command.
   Your permission level is ${level} (${client.config.permLevels.find(l => l.level === level).name})
   This command requires level ${client.levelCache[cmd.conf.permLevel]} (${cmd.conf.permLevel})`);
-  // Posts in mod-log if command was attempted but failed due to lack of permissions.
+      // Posts in mod-log if command was attempted but failed due to lack of permissions.
       return client.logger.cmd(`[CMD] ${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) attempted command ${cmd.help.name}`);
     } else {
       return;
@@ -83,7 +87,7 @@ module.exports = (client, message) => {
   // To simplify message arguments, the author's level is now put on level (not member so it is supported in DMs)
   // The "level" command module argument will be deprecated in the future.
   message.author.permLevel = level;
-  
+
   message.flags = [];
   while (args[0] && args[0][0] === "-") {
     message.flags.push(args.shift().slice(1));
