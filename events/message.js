@@ -1,7 +1,6 @@
 // The MESSAGE event runs anytime a message is received
 // Note that due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.
-const fs = require("fs");
 
 module.exports = (client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
@@ -17,11 +16,6 @@ module.exports = (client, message) => {
   // For ease of use in commands and functions, we'll attach the settings
   // to the message object, so `message.settings` is accessible.
   message.settings = settings;
-
-  if (message.channel.id == '144228126983979008') {
-    console.log('set');
-    fs.writeFileSync("../data/l.txt", `${message.timestamp} - ${message.author}: ${message.content}`, (err) => console.log(err));
-  }
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
