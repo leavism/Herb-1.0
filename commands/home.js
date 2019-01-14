@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
     let embed = {
         title: `**Simbad Regime**`,
-        description: `**Home: Farowalan**\n**Station: Bamford City**`,
+        description: `**Home: Farowalan / Bamford City**`,
         thumbnail: { url: message.guild.iconURL },
         color: 3447003,
         fields: [
