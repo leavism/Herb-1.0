@@ -23,12 +23,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
             }
         ]
     }
-};
 
-let field = {
-    name: `**${station.name} - ${station.type}**`,
-    value: `**CF: ${station.controllingFaction.name}**\n**Market:** ${station.haveMarket ? "✅" : "❌"}\n**Shipyard:** ${station.haveShipyard ? "✅" : "❌"}\n**Outfitting:** ${station.haveOutfitting ? "✅" : "❌"}\n**Other Services:** ${station.otherServices.join(", ")}`,
-    inline: false
+    message.channel.send({ embed })
 }
 
 exports.conf = {
