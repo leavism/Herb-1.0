@@ -6,11 +6,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         color: 3447003,
         fields: [
             {
-                name: '**EDDB Links:',
+                name: '**EDDB Links:**',
                 value: '**System: **https://eddb.io/system/4751\n **Station: **https://eddb.io/station/4799'
             },
             {
-                name: '**Nearest Mat Traders:',
+                name: '**Nearest Mat Traders:**',
                 value: '**Raw: **Estae / Cogswell Dock - 24.78ly\n**Manufactured: **Farowalan / Bamford City - 0.0ly\n**Raw: **HR 1257 / Jacobi Platform - 19.04ly'
             },
             {
