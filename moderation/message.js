@@ -30,7 +30,7 @@ module.exports = (client, message) => {
         })
 
     // Profanity filter
-    var bannedWords = ["nigga", "nibba", "nigger", "gay", "gaylord", "fag", "faggot", "fgt", "gays", "niggas", "nigg", "fags", "faggots", "ni🇧 🇧a", "ni🅱🅱a", "ni🅱 🅱a", "ghey", "autism", "autistic", "autist", "trump", "hillary", "donald trump", "hillary clinton", "volt"]
+    var bannedWords = ["nigga", "nibba", "nigger", "gay", "gaylord", "fag", "faggot", "fgt", "gays", "niggas", "nigg", "fags", "faggots", "ni🇧 🇧a", "ni🅱🅱a", "ni🅱 🅱a", "ghey", "autism", "autistic", "autist", "trump", "hillary", "donald trump", "hillary clinton"]
     var words = message.content.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, "");
 
     words = words.toLowerCase();
