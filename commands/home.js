@@ -11,7 +11,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
             },
             {
                 name: '**Nearest Mat Traders:**',
-                value: '**Raw: **Estae / Cogswell Dock - 24.78ly\n**Manufactured: **Farowalan / Bamford City - 0.0ly\n**Raw: **HR 1257 / Jacobi Platform - 19.04ly'
+                value: '**Raw: **Estae / Cogswell Dock - 24.78ly\n**Manufactured: **Farowalan / Bamford City - 0.0ly\n**Encoded: **HR 1257 / Jacobi Platform - 19.04ly'
             },
             {
                 name: '**Nearest Tech Brokers:**',
